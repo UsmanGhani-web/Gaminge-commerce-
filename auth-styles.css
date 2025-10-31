@@ -1,0 +1,339 @@
+/* Authentication Pages Styles - Dark Theme for Bestro */
+body {
+  background: linear-gradient(135deg, var(--darker-blue) 0%, var(--dark-blue) 50%, var(--primary-blue) 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rajdhani', sans-serif;
+  line-height: 1.6;
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: transparent;
+}
+
+.auth-container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 80px; /* Account for fixed navbar */
+}
+
+.auth-card {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.auth-card:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+  transform: translateY(-5px);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h1 {
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.auth-header p {
+  color: var(--gray);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.auth-form {
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--neon-blue);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 15px;
+  color: var(--neon-blue);
+  font-size: 1.1rem;
+  z-index: 1;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 15px 15px 50px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: var(--white);
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.form-group input::placeholder {
+  color: var(--gray);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.auth-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+}
+
+.auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-button i {
+  font-size: 1rem;
+}
+
+.auth-error {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.auth-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.auth-footer {
+  text-align: center;
+  color: var(--gray);
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.auth-footer p {
+  margin-bottom: 15px;
+}
+
+.auth-link {
+  color: var(--neon-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* Loading Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Focus States */
+.form-group input:focus + i {
+  color: var(--neon-blue);
+}
+
+/* Hover Effects */
+.input-wrapper:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Error State */
+.form-group.error input {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.form-group.error label {
+  color: #ef4444;
+}
+
+.form-group.error .input-wrapper {
+  border-color: #ef4444;
+}
+
+/* Success State */
+.form-group.success input {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.form-group.success .input-wrapper {
+  border-color: #10b981;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  .auth-header h1 {
+    font-size: 2rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .form-group input {
+    padding: 14px 14px 14px 45px;
+  }
+  
+  .auth-container {
+    padding: 10px;
+    margin-top: 70px;
+  }
+}
+
+/* Enhanced form validation styles */
+.form-group input:valid {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.form-group input:invalid:not(:placeholder-shown) {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.password-strength.weak {
+  color: #ef4444;
+}
+
+.password-strength.medium {
+  color: #f59e0b;
+}
+
+.password-strength.strong {
+  color: #10b981;
+}
+
+/* Form submission loading state */
+.auth-button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.auth-button.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+} 

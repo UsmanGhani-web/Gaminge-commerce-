@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beastro - Returns & Refunds</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" id="global-search" class="search-input" placeholder="Search products, components...">
+                        <button type="button" id="search-btn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: PKR <span id="cart-total">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary continue-shopping-btn" id="continue-shopping-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Returns Hero Section -->
+    <section class="hero returns-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Returns & Refunds</h1>
+                <p class="hero-subtitle">
+                    Hassle-free returns and quick refunds. We want you to be completely 
+                    satisfied with your gaming equipment purchase.
+                </p>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <i class="fas fa-undo"></i>
+                    <span>Easy Returns</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Quick Refunds</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-headset"></i>
+                    <span>24/7 Support</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+            <div id="particles-js" class="particles"></div>
+        </div>
+    </section>
+
+    <!-- Return Policy Overview -->
+    <section class="return-policy">
+        <div class="container">
+            <h2 class="section-title">Return Policy Overview</h2>
+            <div class="policy-cards">
+                <div class="policy-card">
+                    <div class="policy-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>14-Day Return Window</h3>
+                    <p>Return most products within 14 days of delivery for a full refund or exchange.</p>
+                </div>
+                
+                <div class="policy-card">
+                    <div class="policy-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Original Condition</h3>
+                    <p>Products must be in original condition with all packaging, manuals, and accessories.</p>
+                </div>
+                
+                <div class="policy-card">
+                    <div class="policy-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Free Return Shipping</h3>
+                    <p>Free return shipping for defective products or shipping errors on our part.</p>
+                </div>
+                
+                <div class="policy-card">
+                    <div class="policy-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Quick Refunds</h3>
+                    <p>Refunds processed within 3-5 business days after we receive your return.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Return Process -->
+    <section class="return-process">
+        <div class="container">
+            <h2 class="section-title">How to Return</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Contact Customer Service</h3>
+                        <p>Reach out to our customer service team within 14 days of delivery to initiate your return.</p>
+                        <div class="contact-methods">
+                            <a href="tel:+923001234567" class="contact-method">
+                                <i class="fas fa-phone"></i>
+                                Call +92 300 1234567
+                            </a>
+                            <a href="mailto:returns@beastro.pk" class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                Email returns@beastro.pk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Return Authorization</h3>
+                        <p>We'll provide you with a Return Authorization Number (RAN) and return shipping label if applicable.</p>
+                        <div class="step-details">
+                            <ul>
+                                <li>Return Authorization Number (RAN)</li>
+                                <li>Prepaid shipping label (for eligible returns)</li>
+                                <li>Return instructions and packaging requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Package and Ship</h3>
+                        <p>Carefully package your item with all original contents and ship it back to us.</p>
+                        <div class="packaging-tips">
+                            <h4>Packaging Tips:</h4>
+                            <ul>
+                                <li>Use original packaging when possible</li>
+                                <li>Include all accessories and manuals</li>
+                                <li>Add bubble wrap for protection</li>
+                                <li>Affix the return label clearly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Receive Refund</h3>
+                        <p>Once we receive and inspect your return, we'll process your refund within 3-5 business days.</p>
+                        <div class="refund-info">
+                            <p><strong>Refund Method:</strong> Original payment method</p>
+                            <p><strong>Processing Time:</strong> 3-5 business days</p>
+                            <p><strong>Notification:</strong> Email confirmation sent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Return Eligibility -->
+    <section class="return-eligibility">
+        <div class="container">
+            <h2 class="section-title">What Can Be Returned?</h2>
+            <div class="eligibility-grid">
+                <div class="eligibility-category">
+                    <h3><i class="fas fa-check-circle"></i> Eligible for Return</h3>
+                    <ul>
+                        <li>Gaming mice and keyboards (unused)</li>
+                        <li>Headsets and audio equipment</li>
+                        <li>Gaming chairs and desks</li>
+                        <li>Gaming accessories and peripherals</li>
+                        <li>PC components (unopened)</li>
+                        <li>Gaming apparel and merchandise</li>
+                    </ul>
+                </div>
+                
+                <div class="eligibility-category">
+                    <h3><i class="fas fa-times-circle"></i> Not Eligible for Return</h3>
+                    <ul>
+                        <li>Custom-built PCs (special terms apply)</li>
+                        <li>Software and digital products</li>
+                        <li>Used or damaged items</li>
+                        <li>Items without original packaging</li>
+                        <li>Personalized or engraved products</li>
+                        <li>Sale or clearance items (marked final sale)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Return Reasons -->
+    <section class="return-reasons">
+        <div class="container">
+            <h2 class="section-title">Common Return Reasons</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Defective Product</h3>
+                    <p>Product doesn't work as expected or has manufacturing defects.</p>
+                    <div class="reason-details">
+                        <span class="return-type">Free Return</span>
+                        <span class="return-time">Extended Window</span>
+                    </div>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Wrong Item Shipped</h3>
+                    <p>We sent you a different product than what you ordered.</p>
+                    <div class="reason-details">
+                        <span class="return-type">Free Return</span>
+                        <span class="return-time">Free Shipping</span>
+                    </div>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Damaged in Transit</h3>
+                    <p>Product arrived damaged due to shipping or handling issues.</p>
+                    <div class="reason-details">
+                        <span class="return-type">Free Return</span>
+                        <span class="return-time">Free Shipping</span>
+                    </div>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Changed Mind</h3>
+                    <p>You're not satisfied with the product or found something better.</p>
+                    <div class="reason-details">
+                        <span class="return-type">Standard Return</span>
+                        <span class="return-time">14 Days</span>
+                    </div>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Size/Color Mismatch</h3>
+                    <p>The product doesn't match the description or your expectations.</p>
+                    <div class="reason-details">
+                        <span class="return-type">Standard Return</span>
+                        <span class="return-time">14 Days</span>
+                    </div>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Gift Return</h3>
+                    <p>Returning a gift or need to exchange for different item.</p>
+                    <div class="reason-details">
+                        <span class="return-type">Exchange Only</span>
+                        <span class="return-time">30 Days</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Return Calculator -->
+    <section class="return-calculator">
+        <div class="container">
+            <h2 class="section-title">Return Cost Calculator</h2>
+            <div class="calculator-content">
+                <div class="calculator-form">
+                    <h3>Estimate Your Return Costs</h3>
+                    <p>Calculate shipping costs and potential restocking fees for your return.</p>
+                    
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label for="return-reason">Return Reason</label>
+                            <select id="return-reason">
+                                <option value="defective">Defective Product</option>
+                                <option value="wrong-item">Wrong Item Shipped</option>
+                                <option value="damaged">Damaged in Transit</option>
+                                <option value="changed-mind">Changed Mind</option>
+                                <option value="size-mismatch">Size/Color Mismatch</option>
+                                <option value="gift">Gift Return</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="product-value">Product Value (PKR)</label>
+                            <input type="number" id="product-value" placeholder="Enter product price" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="return-location">Return Location</label>
+                            <select id="return-location">
+                                <option value="karachi">Karachi</option>
+                                <option value="lahore">Lahore</option>
+                                <option value="islamabad">Islamabad</option>
+                                <option value="other">Other Cities</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" id="calculate-return" class="btn btn-primary">
+                            Calculate Return Costs
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="calculator-result" id="calculator-result" style="display: none;">
+                    <h3>Return Cost Breakdown</h3>
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <span>Return Shipping:</span>
+                            <span id="shipping-cost">PKR 0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Restocking Fee:</span>
+                            <span id="restocking-fee">PKR 0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Processing Fee:</span>
+                            <span id="processing-fee">PKR 0</span>
+                        </div>
+                        <div class="cost-item total">
+                            <span>Total Return Cost:</span>
+                            <span id="total-cost">PKR 0</span>
+                        </div>
+                    </div>
+                    <div class="cost-notes">
+                        <p><strong>Note:</strong> <span id="cost-notes">Free returns for defective products and shipping errors.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Return FAQ -->
+    <section class="return-faq">
+        <div class="container">
+            <h2 class="section-title">Returns FAQ</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How long do I have to return an item?</h3>
+                    <p>Most products can be returned within 14 days of delivery. Custom builds and special orders may have different return terms.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I receive a damaged product?</h3>
+                    <p>Contact us immediately and take photos of the damage. We'll arrange a free return and replacement or refund.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I return a custom-built PC?</h3>
+                    <p>Custom builds have a 7-day return window and may incur a 15% restocking fee. Contact us for specific terms.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long does the refund process take?</h3>
+                    <p>Refunds are processed within 3-5 business days after we receive and inspect your return.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do I need the original receipt?</h3>
+                    <p>Yes, please include your order confirmation or receipt with your return for faster processing.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I exchange an item instead of returning it?</h3>
+                    <p>Yes, we offer exchanges for most products. You can choose a different size, color, or model of equal value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Returns Support -->
+    <section class="returns-support">
+        <div class="container">
+            <div class="support-content">
+                <h2>Need Help with Returns?</h2>
+                <p>Our returns team is here to help make the return process as smooth as possible.</p>
+                <div class="support-options">
+                    <div class="support-option">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>+92 300 1234567</p>
+                        <small>Mon-Fri, 9AM-6PM PKT</small>
+                    </div>
+                    <div class="support-option">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>returns@beastro.pk</p>
+                        <small>Response within 2 hours</small>
+                    </div>
+                    <div class="support-option">
+                        <i class="fas fa-comments"></i>
+                        <h3>Live Chat</h3>
+                        <p>Available on website</p>
+                        <small>Instant support</small>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Contact Returns Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Returns Page Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles
+            initParticles();
+            
+            // Setup return calculator
+            setupReturnCalculator();
+        });
+
+        function initParticles() {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#06b6d4", "#a78bfa", "#6366f1", "#0ea5e9"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.7, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#06b6d4",
+                        opacity: 0.6,
+                        width: 2
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 1 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        function setupReturnCalculator() {
+            const calculateButton = document.getElementById('calculate-return');
+            const calculatorResult = document.getElementById('calculator-result');
+            
+            calculateButton.addEventListener('click', () => {
+                const reason = document.getElementById('return-reason').value;
+                const value = parseFloat(document.getElementById('product-value').value) || 0;
+                const location = document.getElementById('return-location').value;
+                
+                if (value > 0) {
+                    calculateReturnCosts(reason, value, location);
+                    calculatorResult.style.display = 'block';
+                    calculatorResult.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Please enter a valid product value');
+                }
+            });
+        }
+
+        function calculateReturnCosts(reason, value, location) {
+            let shippingCost = 0;
+            let restockingFee = 0;
+            let processingFee = 0;
+            let notes = '';
+            
+            // Calculate shipping cost based on location
+            switch(location) {
+                case 'karachi':
+                    shippingCost = 200;
+                    break;
+                case 'lahore':
+                case 'islamabad':
+                    shippingCost = 400;
+                    break;
+                default:
+                    shippingCost = 600;
+            }
+            
+            // Calculate costs based on return reason
+            switch(reason) {
+                case 'defective':
+                case 'wrong-item':
+                case 'damaged':
+                    shippingCost = 0;
+                    restockingFee = 0;
+                    processingFee = 0;
+                    notes = 'Free returns for defective products and shipping errors.';
+                    break;
+                case 'changed-mind':
+                case 'size-mismatch':
+                    restockingFee = Math.round(value * 0.1); // 10% restocking fee
+                    processingFee = 100;
+                    notes = 'Standard return with restocking fee.';
+                    break;
+                case 'gift':
+                    restockingFee = Math.round(value * 0.05); // 5% restocking fee
+                    processingFee = 50;
+                    notes = 'Gift returns have reduced fees.';
+                    break;
+            }
+            
+            const totalCost = shippingCost + restockingFee + processingFee;
+            
+            // Update display
+            document.getElementById('shipping-cost').textContent = `PKR ${shippingCost}`;
+            document.getElementById('restocking-fee').textContent = `PKR ${restockingFee}`;
+            document.getElementById('processing-fee').textContent = `PKR ${processingFee}`;
+            document.getElementById('total-cost').textContent = `PKR ${totalCost}`;
+            document.getElementById('cost-notes').textContent = notes;
+        }
+    </script>
+    
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+    <script src="js/search-filter.js"></script>
+</body>
+</html> 

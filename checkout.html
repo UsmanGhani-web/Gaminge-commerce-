@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - beastro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" id="global-search" class="search-input" placeholder="Search products, components...">
+                        <button type="button" id="search-btn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <main class="checkout-main">
+        <div class="container">
+            <!-- Checkout Header -->
+            <div class="checkout-header">
+                <h1 class="page-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    Checkout
+                </h1>
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Cart</span>
+                    </div>
+                    <div class="step active">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Information</span>
+                    </div>
+                    <div class="step active">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Payment</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Confirm</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-content">
+                <!-- Left Side - Order Details & Customer Info -->
+                <div class="checkout-left">
+                    <!-- Customer Information -->
+                    <section class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-user"></i>
+                            Customer Information
+                        </h2>
+                        <form class="customer-form" id="customer-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+92 300 1234567" required>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Shipping Information -->
+                    <section class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-shipping-fast"></i>
+                            Shipping Information
+                        </h2>
+                        <form class="shipping-form" id="shipping-form">
+                            <div class="form-group">
+                                <label for="address">Address *</label>
+                                <input type="text" id="address" name="address" placeholder="Street address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <select id="city" name="city" required>
+                                        <option value="">Select City</option>
+                                        <option value="karachi">Karachi</option>
+                                        <option value="lahore">Lahore</option>
+                                        <option value="islamabad">Islamabad</option>
+                                        <option value="rawalpindi">Rawalpindi</option>
+                                        <option value="faisalabad">Faisalabad</option>
+                                        <option value="multan">Multan</option>
+                                        <option value="peshawar">Peshawar</option>
+                                        <option value="quetta">Quetta</option>
+                                        <option value="sialkot">Sialkot</option>
+                                        <option value="gujranwala">Gujranwala</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="postalCode">Postal Code</label>
+                                    <input type="text" id="postalCode" name="postalCode" placeholder="12345">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="province">Province *</label>
+                                <select id="province" name="province" required>
+                                    <option value="">Select Province</option>
+                                    <option value="punjab">Punjab</option>
+                                    <option value="sindh">Sindh</option>
+                                    <option value="kpk">Khyber Pakhtunkhwa</option>
+                                    <option value="balochistan">Balochistan</option>
+                                    <option value="gilgit">Gilgit-Baltistan</option>
+                                    <option value="azad-kashmir">Azad Kashmir</option>
+                                </select>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Payment Methods -->
+                    <section class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-credit-card"></i>
+                            Payment Method
+                        </h2>
+                        
+                        <div class="payment-methods">
+                            <!-- JazzCash Payment -->
+                            <div class="payment-option" data-method="jazzcash">
+                                <input type="radio" id="jazzcash" name="payment_method" value="jazzcash">
+                                <label for="jazzcash" class="payment-label">
+                                    <div class="payment-header">
+                                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=50&h=50&fit=crop&crop=center" alt="JazzCash" class="payment-icon">
+                                        <span class="payment-name">JazzCash</span>
+                                        <span class="payment-badge">Popular</span>
+                                    </div>
+                                    <p class="payment-description">Pay securely with your JazzCash mobile wallet</p>
+                                </label>
+                                <div class="payment-form jazzcash-form">
+                                    <div class="form-group">
+                                        <label for="jazzcash-number">JazzCash Mobile Number *</label>
+                                        <input type="tel" id="jazzcash-number" name="jazzcash_number" placeholder="03XX XXXXXXX" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jazzcash-pin">MPIN *</label>
+                                        <input type="password" id="jazzcash-pin" name="jazzcash_pin" placeholder="Enter your MPIN" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Easypaisa Payment -->
+                            <div class="payment-option" data-method="easypaisa">
+                                <input type="radio" id="easypaisa" name="payment_method" value="easypaisa">
+                                <label for="easypaisa" class="payment-label">
+                                    <div class="payment-header">
+                                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=50&h=50&fit=crop&crop=center" alt="Easypaisa" class="payment-icon">
+                                        <span class="payment-name">Easypaisa</span>
+                                        <span class="payment-badge">Fast</span>
+                                    </div>
+                                    <p class="payment-description">Pay instantly with your Easypaisa account</p>
+                                </label>
+                                <div class="payment-form easypaisa-form">
+                                    <div class="form-group">
+                                        <label for="easypaisa-number">Easypaisa Mobile Number *</label>
+                                        <input type="tel" id="easypaisa-number" name="easypaisa_number" placeholder="03XX XXXXXXX" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="easypaisa-pin">MPIN *</label>
+                                        <input type="password" id="easypaisa-pin" name="easypaisa_pin" placeholder="Enter your MPIN" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Credit/Debit Card Payment -->
+                            <div class="payment-option" data-method="card">
+                                <input type="radio" id="card" name="payment_method" value="card">
+                                <label for="card" class="payment-label">
+                                    <div class="payment-header">
+                                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=50&h=50&fit=crop&crop=center" alt="Credit Card" class="payment-icon">
+                                        <span class="payment-name">Credit / Debit Card</span>
+                                        <span class="payment-badge">Secure</span>
+                                    </div>
+                                    <p class="payment-description">Pay with Visa, Mastercard, or local bank cards</p>
+                                </label>
+                                <div class="payment-form card-form">
+                                    <div class="form-group">
+                                        <label for="card-number">Card Number *</label>
+                                        <input type="text" id="card-number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="card-expiry">Expiry Date *</label>
+                                            <input type="text" id="card-expiry" name="card_expiry" placeholder="MM/YY" maxlength="5" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-cvv">CVV *</label>
+                                            <input type="text" id="card-cvv" name="card_cvv" placeholder="123" maxlength="4" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="card-name">Cardholder Name *</label>
+                                        <input type="text" id="card-name" name="card_name" placeholder="Name on card" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bank Transfer Payment -->
+                            <div class="payment-option" data-method="bank">
+                                <input type="radio" id="bank" name="payment_method" value="bank">
+                                <label for="bank" class="payment-label">
+                                    <div class="payment-header">
+                                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=50&h=50&fit=crop&crop=center" alt="Bank Transfer" class="payment-icon">
+                                        <span class="payment-name">Bank Transfer</span>
+                                        <span class="payment-badge">Reliable</span>
+                                    </div>
+                                    <p class="payment-description">Direct bank transfer to our account</p>
+                                </label>
+                                <div class="payment-form bank-form">
+                                    <div class="bank-details">
+                                        <h4>Bank Account Details:</h4>
+                                        <div class="bank-info">
+                                            <p><strong>Bank:</strong> Allied Bank Limited</p>
+                                            <p><strong>Account Title:</strong> beastro (Pvt) Ltd</p>
+                                            <p><strong>Account Number:</strong> 0010-1234567890</p>
+                                            <p><strong>IBAN:</strong> PK36ABPA0010001234567890</p>
+                                            <p><strong>Branch Code:</strong> 0010</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="bank-reference">Transaction Reference *</label>
+                                            <input type="text" id="bank-reference" name="bank_reference" placeholder="Enter transaction reference number" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Side - Order Summary -->
+                <div class="checkout-right">
+                    <div class="order-summary">
+                        <h2 class="summary-title">
+                            <i class="fas fa-receipt"></i>
+                            Order Summary
+                        </h2>
+                        
+                        <!-- Cart Items -->
+                        <div class="cart-items" id="checkout-items">
+                            <!-- Cart items will be populated by JavaScript -->
+                        </div>
+
+                        <!-- Order Totals -->
+                        <div class="order-totals">
+                            <div class="total-line">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">PKR 0.00</span>
+                            </div>
+                            <div class="total-line">
+                                <span>Shipping:</span>
+                                <span id="shipping">PKR 250.00</span>
+                            </div>
+                            <div class="total-line">
+                                <span>Tax (GST 17%):</span>
+                                <span id="tax">PKR 0.00</span>
+                            </div>
+                            <div class="total-line discount-line" id="discount-line" style="display: none;">
+                                <span>Discount:</span>
+                                <span id="discount" class="discount-amount">-PKR 0.00</span>
+                            </div>
+                            <div class="total-line total">
+                                <span>Total:</span>
+                                <span id="total">PKR 250.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="promo-section">
+                            <div class="promo-input">
+                                <input type="text" id="promo-code" placeholder="Enter promo code">
+                                <button type="button" id="apply-promo" class="promo-btn">Apply</button>
+                            </div>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <div class="checkout-actions">
+                            <button type="button" id="place-order-btn" class="place-order-btn">
+                                <i class="fas fa-lock"></i>
+                                Place Order Securely
+                            </button>
+                            <p class="security-note">
+                                <i class="fas fa-shield-alt"></i>
+                                Your payment information is encrypted and secure
+                            </p>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="trust-badges">
+                            <div class="badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>SSL Secured</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-truck"></i>
+                                <span>Free Shipping</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-undo-alt"></i>
+                                <span>30-Day Returns</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+    <script src="js/search-filter.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html> 

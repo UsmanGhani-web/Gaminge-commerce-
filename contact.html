@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beastro - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                
+
+            </div>
+            
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="particles"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: PKR <span id="cart-total">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary continue-shopping-btn" id="continue-shopping-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Gaming Street, Tech City, TC 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@gamingtechpro.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Hours</h3>
+                            <p>Mon-Fri: 9AM-6PM<br />Sat-Sun: 10AM-4PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Your Name"
+                            required
+                        />
+                    </div>
+                    
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Your Email"
+                            required
+                        />
+                    </div>
+                    
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            name="subject"
+                            id="subject"
+                            placeholder="Subject"
+                            required
+                        />
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea
+                            name="message"
+                            id="message"
+                            placeholder="Your Message"
+                            rows="5"
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Initialize Particles.js with enhanced configuration -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Responsive particles configuration
+            function initParticles() {
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth <= 1024;
+                
+                // Adjust particle count based on screen size
+                let particleCount = 120;
+                let particleSize = 4;
+                let lineDistance = 150;
+                let moveSpeed = 3;
+                
+                if (isMobile) {
+                    particleCount = 60;
+                    particleSize = 3;
+                    lineDistance = 100;
+                    moveSpeed = 2;
+                } else if (isTablet) {
+                    particleCount = 80;
+                    particleSize = 3.5;
+                    lineDistance = 120;
+                    moveSpeed = 2.5;
+                }
+                
+                particlesJS("particles-js", {
+                    particles: {
+                        number: { 
+                            value: particleCount, 
+                            density: { 
+                                enable: true, 
+                                value_area: isMobile ? 400 : 800 
+                            } 
+                        },
+                        color: { 
+                            value: ["#06b6d4", "#a78bfa", "#6366f1", "#0ea5e9"] 
+                        },
+                        shape: { 
+                            type: "circle" 
+                        },
+                        opacity: { 
+                            value: 0.7, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable animations on mobile for better performance
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: { 
+                            value: particleSize, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable size animations on mobile
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: lineDistance,
+                            color: "#06b6d4",
+                            opacity: 0.6,
+                            width: isMobile ? 1 : 2
+                        },
+                        move: {
+                            enable: true,
+                            speed: moveSpeed,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: !isMobile, // Disable attraction on mobile for better performance
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { 
+                                enable: !isMobile, // Disable hover on mobile
+                                mode: "grab" 
+                            },
+                            onclick: { 
+                                enable: true, 
+                                mode: "push" 
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { 
+                                distance: isMobile ? 80 : 140, 
+                                line_linked: { 
+                                    opacity: 1 
+                                } 
+                            },
+                            push: { 
+                                particles_nb: isMobile ? 2 : 4 
+                            },
+                            repulse: {
+                                distance: isMobile ? 100 : 200,
+                                duration: 0.4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            
+            // Initialize particles
+            setTimeout(initParticles, 500);
+            
+            // Reinitialize particles on window resize for responsive behavior
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Destroy existing particles and reinitialize
+                    if (window.pJSDom && window.pJSDom.length > 0) {
+                        window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                        window.pJSDom = [];
+                    }
+                    initParticles();
+                }, 250);
+            });
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+    <script src="js/search-filter.js"></script>
+</body>
+</html> 

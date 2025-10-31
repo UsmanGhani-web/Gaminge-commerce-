@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test - beastro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">Custom Build</a>
+                    </li>
+                    <li class="nav-item">
+{{ ... }}
+                        <a href="components.html" class="nav-link">Components</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" id="global-search" class="search-input" placeholder="Search products, components...">
+                        <button type="button" id="search-btn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Test Content -->
+    <main class="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Search Functionality Test</h1>
+                    <p class="hero-subtitle">Test the search and filter system with these sample products</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Test Products for Search</h2>
+                <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 30px;">
+                    Try searching for: "mouse", "keyboard", "gaming", "wireless", "RGB", "mechanical"
+                </p>
+                
+                <div class="products-grid">
+                    <div class="product-card" data-category="Mouse">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop&crop=center" alt="Razer DeathAdder V3 Pro">
+                        </div>
+                        <div class="product-info">
+                            <h3>Razer DeathAdder V3 Pro</h3>
+                            <p class="product-description">Wireless gaming mouse with 30K DPI sensor and 70-hour battery life</p>
+                            <div class="product-price">$149.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="Keyboard">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=300&fit=crop&crop=center" alt="Corsair K100 RGB">
+                        </div>
+                        <div class="product-info">
+                            <h3>Corsair K100 RGB</h3>
+                            <p class="product-description">Mechanical gaming keyboard with Cherry MX switches and RGB lighting</p>
+                            <div class="product-price">$229.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="Headset">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop&crop=center" alt="SteelSeries Arctis Pro">
+                        </div>
+                        <div class="product-info">
+                            <h3>SteelSeries Arctis Pro</h3>
+                            <p class="product-description">Premium gaming headset with Hi-Res audio and ClearCast microphone</p>
+                            <div class="product-price">$179.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span>(4.7)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="Monitor">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop&crop=center" alt="ASUS ROG Swift PG279Q">
+                        </div>
+                        <div class="product-info">
+                            <h3>ASUS ROG Swift PG279Q</h3>
+                            <p class="product-description">27" 1440p 165Hz IPS gaming monitor with G-Sync technology</p>
+                            <div class="product-price">$599.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span>(4.6)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="Component">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f7?w=400&h=300&fit=crop&crop=center" alt="NVIDIA RTX 4090">
+                        </div>
+                        <div class="product-info">
+                            <h3>NVIDIA RTX 4090</h3>
+                            <p class="product-description">Ultimate graphics card with 24GB GDDR6X memory and ray tracing</p>
+                            <div class="product-price">$1,599.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="Component">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center" alt="Intel Core i9-13900K">
+                        </div>
+                        <div class="product-info">
+                            <h3>Intel Core i9-13900K</h3>
+                            <p class="product-description">24-core processor with 5.8GHz boost clock for ultimate performance</p>
+                            <div class="product-price">$569.99</div>
+                            <div class="product-rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+    <script src="js/search-filter.js"></script>
+    
+    <script>
+        // Test search functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Search test page loaded');
+            console.log('Search system available:', !!window.searchFilterSystem);
+            
+            // Test search with sample terms
+            const testSearch = () => {
+                const searchInput = document.getElementById('global-search');
+                if (searchInput) {
+                    searchInput.value = 'gaming';
+                    searchInput.dispatchEvent(new Event('input'));
+                    console.log('Tested search with "gaming"');
+                }
+            };
+            
+            // Test search after 2 seconds
+            setTimeout(testSearch, 2000);
+        });
+    </script>
+</body>
+</html> 

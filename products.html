@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beastro - Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link active">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="particles"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: PKR <span id="cart-total">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary continue-shopping-btn" id="continue-shopping-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            
+            <!-- Enhanced Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-box">
+                    <input type="text" id="product-search" class="search-input" placeholder="Search products by name, description...">
+                    <button type="button" id="search-btn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="advanced-filters">
+                    <div class="filter-group">
+                        <label for="price-filter">Price Range:</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="">All Prices</option>
+                            <option value="0-50">Under $50</option>
+                            <option value="50-100">$50 - $100</option>
+                            <option value="100-200">$100 - $200</option>
+                            <option value="200+">$200+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="rating-filter">Rating:</label>
+                        <select id="rating-filter" class="filter-select">
+                            <option value="">All Ratings</option>
+                            <option value="4+">4+ Stars</option>
+                            <option value="4.5+">4.5+ Stars</option>
+                            <option value="5">5 Stars</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" id="clear-filters" class="clear-filters-btn">
+                        <i class="fas fa-times"></i>
+                        Clear All
+                    </button>
+                </div>
+                
+                <div class="results-info">
+                    <span id="results-count">Showing all products</span>
+                    <span id="active-filters"></span>
+                </div>
+            </div>
+            
+            <div class="category-filter">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="Mouse">Mouse</button>
+                <button class="category-btn" data-category="Keyboard">Keyboard</button>
+                <button class="category-btn" data-category="Headset">Headset</button>
+                <button class="category-btn" data-category="Monitor">Monitor</button>
+                <button class="category-btn" data-category="Accessory">Accessories</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-category="Mouse">
+                    <div class="product-image">
+                        <img src="https://static.webx.pk/files/19643/Images/razer-deathadder-v3-pro-mouse-price-in-pakistan-1-19643-0-150223053356818.jpg" alt="Razer DeathAdder V3 Pro">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="1" data-product-name="Razer DeathAdder V3 Pro" data-product-price="149.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer DeathAdder V3 Pro</h3>
+                        <p class="product-description">Wireless gaming mouse with 30K DPI sensor and 70-hour battery life</p>
+                        <div class="product-price">$149.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Keyboard">
+                    <div class="product-image">
+                        <img src="https://tpucdn.com/review/corsair-k100-rgb-mechanical-keyboard/images/title.jpg" alt="Corsair K100 RGB">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="2" data-product-name="Corsair K100 RGB" data-product-price="229.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Corsair K100 RGB</h3>
+                        <p class="product-description">Mechanical gaming keyboard with Cherry MX switches and RGB lighting</p>
+                        <div class="product-price">$229.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Headset">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/718uJU-WPxL._UF350,350_QL80_.jpg" alt="SteelSeries Arctis Pro">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="3" data-product-name="SteelSeries Arctis Pro" data-product-price="179.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>SteelSeries Arctis Pro</h3>
+                        <p class="product-description">Premium gaming headset with Hi-Res audio and ClearCast microphone</p>
+                        <div class="product-price">$179.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Monitor">
+                    <div class="product-image">
+                        <img src="https://dlcdnimgs.asus.com/websites/global/products/yUqf81thTG70si2c/images/PG27_net/PG27.net.Beauty_00000.png" alt="ASUS ROG Swift PG279Q">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="4" data-product-name="ASUS ROG Swift PG279Q" data-product-price="599.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>ASUS ROG Swift PG279Q</h3>
+                        <p class="product-description">27" 1440p 165Hz IPS gaming monitor with G-Sync</p>
+                        <div class="product-price">$599.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Mouse">
+                    <div class="product-image">
+                        <img src="https://tpucdn.com/review/logitech-g-pro-x-superlight-2/images/title.jpg" alt="Logitech G Pro X">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="5" data-product-name="Logitech G Pro X" data-product-price="129.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Logitech G Pro X</h3>
+                        <p class="product-description">Lightweight wireless gaming mouse with HERO sensor</p>
+                        <div class="product-price">$129.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Keyboard">
+                    <div class="product-image">
+                        <img src="https://i.rtings.com/assets/products/cqsqkoO8/hyperx-alloy-origins/design-medium.jpg?format=auto" alt="HyperX Alloy Origins">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="6" data-product-name="HyperX Alloy Origins" data-product-price="89.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>HyperX Alloy Origins</h3>
+                        <p class="product-description">Compact mechanical keyboard with HyperX switches</p>
+                        <div class="product-price">$89.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.4)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Gaming Products with Real Images -->
+                <div class="product-card" data-category="Mouse">
+                    <div class="product-image">
+                        <img src="https://i.rtings.com/assets/products/L0FFdXlU/logitech-g-pro-x-superlight-2/design-medium.jpg?format=auto" alt="Logitech G Pro X Superlight">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="7" data-product-name="Logitech G Pro X Superlight" data-product-price="129.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Logitech G Pro X Superlight</h3>
+                        <p class="product-description">Ultra-lightweight wireless gaming mouse with HERO 25K sensor</p>
+                        <div class="product-price">$129.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Keyboard">
+                    <div class="product-image">
+                        <img src="https://static.webx.pk/files/821/Images/razer-blackwidow-v3-pro-1-industechpk-821-0-240822093718556.jpg" alt="Razer BlackWidow V3 Pro">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="8" data-product-name="Razer BlackWidow V3 Pro" data-product-price="199.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer BlackWidow V3 Pro</h3>
+                        <p class="product-description">Wireless mechanical keyboard with Razer Yellow switches</p>
+                        <div class="product-price">$199.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Headset">
+                    <div class="product-image">
+                        <img src="https://cdn.custompc.com/wp-content/sites/custompc/2023/04/Razer-Blackshark-V2-Pro-2023-01-550x309.jpg" alt="Razer BlackShark V2 Pro">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="9" data-product-name="Razer BlackShark V2 Pro" data-product-price="159.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer BlackShark V2 Pro</h3>
+                        <p class="product-description">Wireless gaming headset with THX Spatial Audio technology</p>
+                        <div class="product-price">$159.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Monitor">
+                    <div class="product-image">
+                        <img src="https://i.rtings.com/assets/products/bTTntxbz/lg-27gl850-b-27gl83a-b/design-medium.jpg?format=auto" alt="LG 27GL850-B">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="10" data-product-name="LG 27GL850-B" data-product-price="449.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>LG 27GL850-B</h3>
+                        <p class="product-description">27" 1440p 144Hz Nano IPS monitor with FreeSync Premium</p>
+                        <div class="product-price">$449.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Monitor">
+                    <div class="product-image">
+                        <img src="https://i.rtings.com/assets/products/bTTntxbz/lg-27gl850-b-27gl83a-b/design-medium.jpg?format=auto" alt="Samsung Odyssey G7">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="11" data-product-name="Samsung Odyssey G7" data-product-price="699.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Samsung Odyssey G7</h3>
+                        <p class="product-description">32" 1440p 240Hz curved gaming monitor with 1ms response</p>
+                        <div class="product-price">$699.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://www.winstore.pk/cdn/shop/products/oW40OTLCGP_2048x.jpg?v=1640456361" alt="SteelSeries QcK Gaming Mousepad">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="12" data-product-name="SteelSeries QcK Gaming Mousepad" data-product-price="19.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>SteelSeries QcK Gaming Mousepad</h3>
+                        <p class="product-description">High-quality cloth gaming mousepad for precise mouse control</p>
+                        <div class="product-price">$19.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.3)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://www.skygames.com.pk/wp-content/uploads/2022/12/xbox-elite-wireless-controller-series-2-black.png" alt="Gaming Controller">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="19" data-product-name="Xbox Elite Series 2 Controller" data-product-price="179.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Xbox Elite Series 2 Controller</h3>
+                        <p class="product-description">Premium gaming controller with customizable paddles and triggers</p>
+                        <div class="product-price">$179.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://secretlab.eu/cdn/shop/products/TITAN-2020-STEALTH-1_grande.jpg?v=1626092669" alt="Gaming Chair">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="20" data-product-name="Secretlab Titan Gaming Chair" data-product-price="399.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Secretlab Titan Gaming Chair</h3>
+                        <p class="product-description">Ergonomic gaming chair with memory foam and adjustable lumbar</p>
+                        <div class="product-price">$399.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://m1.com.pk/wp-content/uploads/2023/09/Blue-Microphones-Yeti-X-USB-Condenser-Microphone.jpg" alt="Gaming Microphone">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="21" data-product-name="Blue Yeti X Gaming Microphone" data-product-price="169.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Blue Yeti X Gaming Microphone</h3>
+                        <p class="product-description">Professional USB condenser microphone with RGB lighting</p>
+                        <div class="product-price">$169.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71A2YAV2O0L.jpg" alt="Gaming Webcam">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="22" data-product-name="Logitech StreamCam" data-product-price="169.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Logitech StreamCam</h3>
+                        <p class="product-description">1080p 60fps webcam with auto-focus and HDR</p>
+                        <div class="product-price">$169.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/81ACRfPHn-L._AC_SL1500_.jpg" alt="Razer Goliathus Extended">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="13" data-product-name="Razer Goliathus Extended" data-product-price="29.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer Goliathus Extended</h3>
+                        <p class="product-description">Extended gaming mousepad with anti-slip rubber base</p>
+                        <div class="product-price">$29.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.4)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Gaming-Mousepads/CH-9440020-NA/Gallery/MM800_03.webp" alt="Corsair MM800 RGB Polaris">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="14" data-product-name="Corsair MM800 RGB Polaris" data-product-price="59.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Corsair MM800 RGB Polaris</h3>
+                        <p class="product-description">RGB gaming mousepad with 15 customizable lighting zones</p>
+                        <div class="product-price">$59.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Real Gaming Products -->
+                <div class="product-card" data-category="Mouse">
+                    <div class="product-image">
+                        <img src="https://tpucdn.com/review/steelseries-rival-600/images/title.jpg" alt="SteelSeries Rival 600">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="15" data-product-name="SteelSeries Rival 600" data-product-price="79.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>SteelSeries Rival 600</h3>
+                        <p class="product-description">Dual sensor gaming mouse with customizable weight system</p>
+                        <div class="product-price">$79.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.3)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Keyboard">
+                    <div class="product-image">
+                        <img src="https://vmart.pk/cdn/shop/files/Razer-Huntsman-V2-Analog-Gaming-Keyboard.jpg?v=1737474591" alt="Razer Huntsman V2">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="16" data-product-name="Razer Huntsman V2" data-product-price="249.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer Huntsman V2</h3>
+                        <p class="product-description">Optical mechanical keyboard with Razer Red switches</p>
+                        <div class="product-price">$249.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Headset">
+                    <div class="product-image">
+                        <img src="https://hyperx.pk/wp-content/uploads/2023/09/hyperx_cloud_alpha_wireless_2_main_dongle_900x.webp" alt="HyperX Cloud Alpha">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="17" data-product-name="HyperX Cloud Alpha" data-product-price="99.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>HyperX Cloud Alpha</h3>
+                        <p class="product-description">Dual chamber drivers for superior audio separation</p>
+                        <div class="product-price">$99.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Monitor">
+                    <div class="product-image">
+                        <img src="https://rbtechngames.com/wp-content/uploads/2022/12/msi_mag274qrx_2.png" alt="MSI Optix MAG274QRF">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="18" data-product-name="MSI Optix MAG274QRF" data-product-price="399.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>MSI Optix MAG274QRF</h3>
+                        <p class="product-description">27" 1440p 165Hz gaming monitor with FreeSync</p>
+                        <div class="product-price">$399.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating AI Bot Circle -->
+    <div class="floating-ai-bot" id="floating-ai-bot">
+        <div class="ai-bot-circle" id="ai-bot-circle">
+            <i class="fas fa-robot"></i>
+        </div>
+        
+        <div class="ai-chat-popup" id="ai-chat-popup">
+            <div class="chat-header">
+                <h4>beastro AI</h4>
+                <button class="close-chat" id="close-chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <p>Hello! How can I help you with gaming?</p>
+                </div>
+            </div>
+            
+            <div class="quick-questions">
+                <button class="quick-question" onclick="askQuickQuestion('What gaming mouse should I buy?')">
+                    Best gaming mouse?
+                </button>
+                <button class="quick-question" onclick="askQuickQuestion('How to build a gaming PC?')">
+                    Build gaming PC?
+                </button>
+                <button class="quick-question" onclick="askQuickQuestion('Gaming headset recommendations?')">
+                    Gaming headset?
+                </button>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Ask me anything...">
+                <button id="send-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Initialize Particles.js with enhanced configuration -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Responsive particles configuration
+            function initParticles() {
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth <= 1024;
+                
+                // Adjust particle count based on screen size
+                let particleCount = 120;
+                let particleSize = 4;
+                let lineDistance = 150;
+                let moveSpeed = 3;
+                
+                if (isMobile) {
+                    particleCount = 60;
+                    particleSize = 3;
+                    lineDistance = 100;
+                    moveSpeed = 2;
+                } else if (isTablet) {
+                    particleCount = 80;
+                    particleSize = 3.5;
+                    lineDistance = 120;
+                    moveSpeed = 2.5;
+                }
+                
+                particlesJS("particles-js", {
+                    particles: {
+                        number: { 
+                            value: particleCount, 
+                            density: { 
+                                enable: true, 
+                                value_area: isMobile ? 400 : 800 
+                            } 
+                        },
+                        color: { 
+                            value: ["#06b6d4", "#a78bfa", "#6366f1", "#0ea5e9"] 
+                        },
+                        shape: { 
+                            type: "circle" 
+                        },
+                        opacity: { 
+                            value: 0.7, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable animations on mobile for better performance
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: { 
+                            value: particleSize, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable size animations on mobile
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: lineDistance,
+                            color: "#06b6d4",
+                            opacity: 0.6,
+                            width: isMobile ? 1 : 2
+                        },
+                        move: {
+                            enable: true,
+                            speed: moveSpeed,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: !isMobile, // Disable attraction on mobile for better performance
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { 
+                                enable: !isMobile, // Disable hover on mobile
+                                mode: "grab" 
+                            },
+                            onclick: { 
+                                enable: true, 
+                                mode: "push" 
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { 
+                                distance: isMobile ? 80 : 140, 
+                                line_linked: { 
+                                    opacity: 1 
+                                } 
+                            },
+                            push: { 
+                                particles_nb: isMobile ? 2 : 4 
+                            },
+                            repulse: {
+                                distance: isMobile ? 100 : 200,
+                                duration: 0.4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            
+            // Initialize particles
+            setTimeout(initParticles, 500);
+            
+            // Reinitialize particles on window resize for responsive behavior
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Destroy existing particles and reinitialize
+                    if (window.pJSDom && window.pJSDom.length > 0) {
+                        window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                        window.pJSDom = [];
+                    }
+                    initParticles();
+                }, 250);
+            });
+        });
+    </script>
+
+    <!-- Floating AI Bot Styles -->
+    <style>
+        .floating-ai-bot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .ai-bot-circle {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #06b6d4, #a78bfa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+            transition: all 0.3s ease;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .ai-bot-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(6, 182, 212, 0.6);
+        }
+
+        .ai-bot-circle i {
+            font-size: 28px;
+            color: white;
+        }
+
+        .ai-chat-popup {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            width: 320px;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: none;
+            overflow: hidden;
+        }
+
+        .ai-chat-popup.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #06b6d4, #a78bfa);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h4 {
+            color: white;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .close-chat {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-chat:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .chat-messages {
+            padding: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 15px;
+        }
+
+        .bot-message p {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 15px;
+            color: #e5e7eb;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .user-message p {
+            background: rgba(16, 185, 129, 0.2);
+            padding: 10px 15px;
+            border-radius: 15px;
+            color: #10b981;
+            margin: 0;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .chat-input {
+            padding: 15px 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-input input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 8px 15px;
+            color: #e5e7eb;
+            font-size: 0.9rem;
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: #10b981;
+        }
+
+        .chat-input button {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            transform: scale(1.1);
+        }
+
+        .quick-questions {
+            padding: 15px 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quick-question {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .quick-question:hover {
+            background: rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .floating-ai-bot {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .ai-bot-circle {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .ai-chat-popup {
+                width: 280px;
+                right: -10px;
+            }
+        }
+    </style>
+
+
+    </style>
+
+    <!-- Floating AI Bot JavaScript -->
+    <script>
+        // AI Chatbot with Gemini API
+        const GEMINI_API_KEY = 'AIzaSyDsomUgyOp_rKipDubYPnssGYU3sjJbt88';
+        const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+
+        function setupFloatingBot() {
+            const aiBotCircle = document.getElementById('ai-bot-circle');
+            const aiChatPopup = document.getElementById('ai-chat-popup');
+            const closeChat = document.getElementById('close-chat');
+            const chatInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-message');
+            const chatMessages = document.getElementById('chat-messages');
+
+            // Toggle chat popup
+            aiBotCircle.addEventListener('click', () => {
+                aiChatPopup.classList.add('show');
+                setTimeout(() => chatInput.focus(), 300);
+            });
+
+            // Close chat popup
+            closeChat.addEventListener('click', () => {
+                aiChatPopup.classList.remove('show');
+            });
+
+            // Send message on Enter key
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Send message on button click
+            sendButton.addEventListener('click', sendMessage);
+        }
+
+        function askQuickQuestion(question) {
+            addUserMessage(question);
+            sendToGemini(question);
+        }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const message = chatInput.value.trim();
+            
+            if (message) {
+                addUserMessage(message);
+                sendToGemini(message);
+                chatInput.value = '';
+            }
+        }
+
+        function addUserMessage(message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user-message';
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <p>${escapeHtml(message)}</p>
+                </div>
+                <div class="message-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function addBotMessage(message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot-message';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>${message}</p>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        async function sendToGemini(message) {
+            try {
+                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: `You are a helpful AI gaming assistant. The user asked: "${message}". Please provide a helpful, informative response about gaming, PC building, or tech advice. Keep it conversational and under 150 words.`
+                            }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                    const botResponse = data.candidates[0].content.parts[0].text;
+                    addBotMessage(botResponse);
+                } else {
+                    addBotMessage("I'm sorry, I couldn't process your request right now. Please try again in a moment.");
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                addBotMessage("I'm experiencing some technical difficulties. Please try again later or contact our support team.");
+            }
+        }
+
+        function scrollToBottom() {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Initialize floating bot when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setupFloatingBot();
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+    <script src="js/search-filter.js"></script>
+</body>
+</html> 

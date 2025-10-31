@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beastro - Shipping Information</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" id="global-search" class="search-input" placeholder="Search products, components...">
+                        <button type="button" id="search-btn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: PKR <span id="cart-total">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary continue-shopping-btn" id="continue-shopping-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shipping Hero Section -->
+    <section class="hero shipping-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Shipping Information</h1>
+                <p class="hero-subtitle">
+                    Fast, reliable shipping across Pakistan. Track your orders in real-time 
+                    and enjoy free shipping on orders over PKR 10,000.
+                </p>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Fast</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-truck"></i>
+                    <span>Reliable</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Nationwide</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+            <div id="particles-js" class="particles"></div>
+        </div>
+    </section>
+
+    <!-- Shipping Options -->
+    <section class="shipping-options">
+        <div class="container">
+            <h2 class="section-title">Shipping Options</h2>
+            <div class="shipping-grid">
+                <div class="shipping-card">
+                    <div class="shipping-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Standard Shipping</h3>
+                    <div class="shipping-details">
+                        <p class="shipping-time">2-3 Business Days</p>
+                        <p class="shipping-cost">PKR 300-500</p>
+                        <p class="shipping-coverage">Major Cities</p>
+                    </div>
+                    <ul class="shipping-features">
+                        <li><i class="fas fa-check"></i> Order tracking</li>
+                        <li><i class="fas fa-check"></i> SMS notifications</li>
+                        <li><i class="fas fa-check"></i> Safe packaging</li>
+                    </ul>
+                </div>
+
+                <div class="shipping-card featured">
+                    <div class="shipping-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Express Shipping</h3>
+                    <div class="shipping-details">
+                        <p class="shipping-time">1-2 Business Days</p>
+                        <p class="shipping-cost">PKR 500-1000</p>
+                        <p class="shipping-coverage">All Cities</p>
+                    </div>
+                    <ul class="shipping-features">
+                        <li><i class="fas fa-check"></i> Priority handling</li>
+                        <li><i class="fas fa-check"></i> Real-time tracking</li>
+                        <li><i class="fas fa-check"></i> Guaranteed delivery</li>
+                    </ul>
+                    <div class="featured-badge">Most Popular</div>
+                </div>
+
+                <div class="shipping-card">
+                    <div class="shipping-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Premium Shipping</h3>
+                    <div class="shipping-details">
+                        <p class="shipping-time">Same Day</p>
+                        <p class="shipping-cost">PKR 1000-1500</p>
+                        <p class="shipping-coverage">Karachi Only</p>
+                    </div>
+                    <ul class="shipping-features">
+                        <li><i class="fas fa-check"></i> Same day delivery</li>
+                        <li><i class="fas fa-check"></i> Personal delivery</li>
+                        <li><i class="fas fa-check"></i> Setup assistance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Shipping Banner -->
+    <section class="free-shipping-banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="banner-text">
+                    <h2>Free Shipping on Orders Over PKR 10,000</h2>
+                    <p>Upgrade your gaming setup and enjoy free standard shipping nationwide!</p>
+                </div>
+                <a href="products.html" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping Coverage -->
+    <section class="shipping-coverage">
+        <div class="container">
+            <h2 class="section-title">Shipping Coverage</h2>
+            <div class="coverage-content">
+                <div class="coverage-map">
+                    <div class="map-container">
+                        <div class="pakistan-map">
+                            <div class="city karachi" data-city="Karachi">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Karachi</span>
+                            </div>
+                            <div class="city lahore" data-city="Lahore">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Lahore</span>
+                            </div>
+                            <div class="city islamabad" data-city="Islamabad">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Islamabad</span>
+                            </div>
+                            <div class="city peshawar" data-city="Peshawar">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Peshawar</span>
+                            </div>
+                            <div class="city quetta" data-city="Quetta">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Quetta</span>
+                            </div>
+                            <div class="city multan" data-city="Multan">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Multan</span>
+                            </div>
+                            <div class="city faisalabad" data-city="Faisalabad">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Faisalabad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="coverage-details">
+                    <h3>We Ship Nationwide</h3>
+                    <p>beastro delivers to all major cities and towns across Pakistan, ensuring gamers everywhere can access premium gaming equipment.</p>
+                    
+                    <div class="delivery-times">
+                        <h4>Typical Delivery Times:</h4>
+                        <ul>
+                            <li><strong>Karachi:</strong> 1-2 business days</li>
+                            <li><strong>Lahore, Islamabad:</strong> 2-3 business days</li>
+                            <li><strong>Other Major Cities:</strong> 3-4 business days</li>
+                            <li><strong>Remote Areas:</strong> 5-7 business days</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping Process -->
+    <section class="shipping-process">
+        <div class="container">
+            <h2 class="section-title">How Shipping Works</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Place Order</h3>
+                    <p>Choose your products and complete your purchase on our secure website.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Order Processing</h3>
+                    <p>We carefully package your items and prepare them for shipping within 24 hours.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Shipment</h3>
+                    <p>Your order is shipped via our trusted courier partners with real-time tracking.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Delivery</h3>
+                    <p>Receive your order at your doorstep with safe and secure delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Information -->
+    <section class="tracking-info">
+        <div class="container">
+            <h2 class="section-title">Track Your Order</h2>
+            <div class="tracking-content">
+                <div class="tracking-form">
+                    <h3>Enter Your Tracking Number</h3>
+                    <p>Get real-time updates on your order status and delivery progress.</p>
+                    <div class="tracking-input">
+                        <input type="text" id="tracking-number" placeholder="Enter tracking number">
+                        <button type="button" id="track-order" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Track Order
+                        </button>
+                    </div>
+                </div>
+                <div class="tracking-result" id="tracking-result" style="display: none;">
+                    <div class="tracking-status">
+                        <h3>Order Status</h3>
+                        <div class="status-timeline">
+                            <div class="status-step completed">
+                                <div class="status-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="status-info">
+                                    <h4>Order Confirmed</h4>
+                                    <p>Your order has been confirmed and is being processed</p>
+                                    <span class="status-time">Today, 10:30 AM</span>
+                                </div>
+                            </div>
+                            <div class="status-step completed">
+                                <div class="status-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="status-info">
+                                    <h4>Shipped</h4>
+                                    <p>Your order has been shipped and is on its way</p>
+                                    <span class="status-time">Today, 2:15 PM</span>
+                                </div>
+                            </div>
+                            <div class="status-step current">
+                                <div class="status-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="status-info">
+                                    <h4>In Transit</h4>
+                                    <p>Your order is currently in transit to your location</p>
+                                    <span class="status-time">Expected: Tomorrow</span>
+                                </div>
+                            </div>
+                            <div class="status-step">
+                                <div class="status-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="status-info">
+                                    <h4>Delivered</h4>
+                                    <p>Your order will be delivered to your doorstep</p>
+                                    <span class="status-time">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping FAQ -->
+    <section class="shipping-faq">
+        <div class="container">
+            <h2 class="section-title">Shipping FAQ</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>When will my order ship?</h3>
+                    <p>Most orders ship within 24 hours of placement. Custom builds may take 3-5 business days to prepare and ship.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I change my shipping address?</h3>
+                    <p>You can change your shipping address within 2 hours of placing your order by contacting our customer service team.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you ship on weekends?</h3>
+                    <p>We process orders Monday through Friday. Weekend orders will be processed and shipped on the next business day.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I'm not home for delivery?</h3>
+                    <p>Our courier partners will attempt delivery twice. If unsuccessful, they'll leave a notice with pickup instructions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is shipping insurance included?</h3>
+                    <p>Yes, all shipments include basic insurance. Additional coverage is available for high-value orders.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I pick up my order?</h3>
+                    <p>Yes, we offer free pickup from our Karachi showroom. Select "Store Pickup" during checkout.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Shipping Support -->
+    <section class="shipping-support">
+        <div class="container">
+            <div class="support-content">
+                <h2>Need Help with Shipping?</h2>
+                <p>Our shipping support team is here to help with any delivery questions or concerns.</p>
+                <div class="support-options">
+                    <div class="support-option">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>+92 300 1234567</p>
+                        <small>Mon-Fri, 9AM-6PM PKT</small>
+                    </div>
+                    <div class="support-option">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>shipping@beastro.pk</p>
+                        <small>Response within 2 hours</small>
+                    </div>
+                    <div class="support-option">
+                        <i class="fas fa-comments"></i>
+                        <h3>Live Chat</h3>
+                        <p>Available on website</p>
+                        <small>Instant support</small>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Contact Shipping Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Shipping Page Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles
+            initParticles();
+            
+            // Setup tracking functionality
+            setupTracking();
+            
+            // Setup city map interactions
+            setupCityMap();
+        });
+
+        function initParticles() {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#06b6d4", "#a78bfa", "#6366f1", "#0ea5e9"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.7, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#06b6d4",
+                        opacity: 0.6,
+                        width: 2
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 1 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        function setupTracking() {
+            const trackButton = document.getElementById('track-order');
+            const trackingResult = document.getElementById('tracking-result');
+            
+            trackButton.addEventListener('click', () => {
+                const trackingNumber = document.getElementById('tracking-number').value.trim();
+                
+                if (trackingNumber) {
+                    // Show tracking result (demo)
+                    trackingResult.style.display = 'block';
+                    
+                    // Scroll to result
+                    trackingResult.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Please enter a tracking number');
+                }
+            });
+        }
+
+        function setupCityMap() {
+            const cities = document.querySelectorAll('.city');
+            
+            cities.forEach(city => {
+                city.addEventListener('click', () => {
+                    const cityName = city.getAttribute('data-city');
+                    
+                    // Remove active class from all cities
+                    cities.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked city
+                    city.classList.add('active');
+                    
+                    // Show city info (you can expand this)
+                    console.log(`Selected city: ${cityName}`);
+                });
+            });
+        }
+    </script>
+    
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+    <script src="js/search-filter.js"></script>
+</body>
+</html> 

@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beastro - Home</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" id="global-search" name="search" class="search-input" placeholder="Search products, components...">
+                        <button type="button" id="search-btn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                <div class="nav-toggle">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: PKR <span id="cart-total">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary continue-shopping-btn" id="continue-shopping-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+     <script src="js/mobile-nav-fixed.js"></script>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Ultimate Gaming Experience</h1>
+                <p class="hero-subtitle">
+                    Discover premium PC accessories that elevate your gaming to the next level. 
+                    From high-performance mice to crystal-clear headsets, we have everything you need.
+                </p>
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn btn-primary">Shop Now</a>
+                    <a href="custombuild.html" class="btn btn-secondary">Custom Build</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <i class="fas fa-microchip"></i>
+                    <span>RTX 4090</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-memory"></i>
+                    <span>32GB DDR5</span>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-hdd"></i>
+                    <span>2TB NVMe</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+            <div id="particles-js" class="particles"></div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card" data-category="Mouse">
+                    <div class="product-image">
+                        <img src="https://techarc.pk/wp-content/uploads/2024/07/razer-deathadder-v3-pro-wireless-gaming-mouse-pakistan-1.webp" alt="Razer DeathAdder V3 Pro">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="1" data-product-name="Razer DeathAdder V3 Pro" data-product-price="149.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer DeathAdder V3 Pro</h3>
+                        <p class="product-description">Wireless gaming mouse with 30K DPI sensor</p>
+                        <div class="product-price">$149.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Keyboard">
+                    <div class="product-image">
+                        <img src="https://tpucdn.com/review/corsair-k100-rgb-mechanical-keyboard/images/title.jpg" alt="Corsair K100 RGB">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="2" data-product-name="Corsair K100 RGB" data-product-price="229.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Corsair K100 RGB</h3>
+                        <p class="product-description">Mechanical gaming keyboard with Cherry MX switches</p>
+                        <div class="product-price">$229.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Headset">
+                    <div class="product-image">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/97a40a57638db7df20ea82036d8b8794.jpg_720x720q80.jpg" alt="SteelSeries Arctis Pro">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="3" data-product-name="SteelSeries Arctis Pro" data-product-price="179.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>SteelSeries Arctis Pro</h3>
+                        <p class="product-description">Premium gaming headset with Hi-Res audio</p>
+                        <div class="product-price">$179.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Monitor">
+                    <div class="product-image">
+                        <img src="https://cdn.homeshopping.pk/product_images/v/486/24-236-660-32__50787_zoom.jpg" alt="ASUS ROG Swift PG279Q">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="4" data-product-name="ASUS ROG Swift PG279Q" data-product-price="599.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>ASUS ROG Swift PG279Q</h3>
+                        <p class="product-description">27" 1440p 165Hz IPS gaming monitor</p>
+                        <div class="product-price">$599.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Gaming Products -->
+                <div class="product-card" data-category="Mouse">
+                    <div class="product-image">
+                        <img src="https://tpucdn.com/review/logitech-g-pro-x-superlight-2/images/title.jpg" alt="Logitech G Pro X Superlight">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="5" data-product-name="Logitech G Pro X Superlight" data-product-price="129.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Logitech G Pro X Superlight</h3>
+                        <p class="product-description">Ultra-lightweight wireless gaming mouse</p>
+                        <div class="product-price">$129.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Keyboard">
+                    <div class="product-image">
+                        <img src="https://static.webx.pk/files/821/Images/razer-blackwidow-v3-pro-1-industechpk-821-0-240822093718556.jpg" alt="Razer BlackWidow V3 Pro">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="6" data-product-name="Razer BlackWidow V3 Pro" data-product-price="199.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer BlackWidow V3 Pro</h3>
+                        <p class="product-description">Wireless mechanical keyboard with RGB</p>
+                        <div class="product-price">$199.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Headset">
+                    <div class="product-image">
+                        <img src="https://hyperx.pk/wp-content/uploads/2023/09/hyperx_cloud_alpha_wireless_2_main_dongle_900x.webp" alt="HyperX Cloud Alpha">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="7" data-product-name="HyperX Cloud Alpha" data-product-price="99.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>HyperX Cloud Alpha</h3>
+                        <p class="product-description">Dual chamber drivers for superior audio</p>
+                        <div class="product-price">$99.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Monitor">
+                    <div class="product-image">
+                        <img src="https://i.rtings.com/assets/products/bTTntxbz/lg-27gl850-b-27gl83a-b/design-medium.jpg?format=auto" alt="LG 27GL850-B">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="8" data-product-name="LG 27GL850-B" data-product-price="449.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>LG 27GL850-B</h3>
+                        <p class="product-description">27" 1440p 144Hz Nano IPS monitor</p>
+                        <div class="product-price">$449.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://www.winstore.pk/cdn/shop/products/oW40OTLCGP_2048x.jpg?v=1640456361" alt="SteelSeries QcK Gaming Mousepad">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="9" data-product-name="SteelSeries QcK Gaming Mousepad" data-product-price="19.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>SteelSeries QcK Gaming Mousepad</h3>
+                        <p class="product-description">High-quality cloth gaming mousepad</p>
+                        <div class="product-price">$19.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.3)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://secretlab.eu/cdn/shop/products/TITAN-2020-STEALTH-1_grande.jpg?v=1626092669" alt="Secretlab Titan Gaming Chair">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="10" data-product-name="Secretlab Titan Gaming Chair" data-product-price="399.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Secretlab Titan Gaming Chair</h3>
+                        <p class="product-description">Ergonomic gaming chair with memory foam</p>
+                        <div class="product-price">$399.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/81ACRfPHn-L._AC_SL1500_.jpg" alt="Razer Goliathus Extended">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="11" data-product-name="Razer Goliathus Extended" data-product-price="29.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Razer Goliathus Extended</h3>
+                        <p class="product-description">Extended gaming mousepad with anti-slip base</p>
+                        <div class="product-price">$29.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.4)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="Accessory">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71A2YAV2O0L.jpg" alt="Logitech StreamCam">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary buy-now-btn" data-product-id="12" data-product-name="Logitech StreamCam" data-product-price="169.99">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Logitech StreamCam</h3>
+                        <p class="product-description">1080p 60fps webcam with auto-focus</p>
+                        <div class="product-price">$169.99</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming Stats Section -->
+    <section class="gaming-stats">
+        <div class="container">
+            <h2 class="section-title">Gaming Community Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="50000">0</div>
+                    <div class="stat-label">Happy Gamers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">PCs Built</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Tournaments Won</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number" data-target="4.9">0</div>
+                    <div class="stat-label">Customer Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Gaming News Section -->
+    <section class="gaming-news">
+        <div class="container">
+            <h2 class="section-title">Latest Gaming News</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop&crop=center" alt="RTX 5000 Series">
+                        <div class="news-category">Hardware</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>NVIDIA RTX 5000 Series Rumors</h3>
+                        <p>Latest leaks suggest massive performance improvements in the upcoming RTX 5000 series graphics cards.</p>
+                        <div class="news-meta">
+                            <span class="news-date">2 hours ago</span>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=250&fit=crop&crop=center" alt="Esports Tournament">
+                        <div class="news-category">Esports</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Major Esports Tournament Announced</h3>
+                        <p>beastro sponsors the biggest PC gaming tournament with $100,000 prize pool.</p>
+                        <div class="news-meta">
+                            <span class="news-date">1 day ago</span>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVvGh_nfZwS0dNUyEozBXb_cEFm7BS3V7pUw&s" alt="Gaming Setup">
+                        <div class="news-category">Setup</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Ultimate Gaming Setup Guide 2024</h3>
+                        <p>Learn how to build the perfect gaming setup with our comprehensive guide and recommendations.</p>
+                        <div class="news-meta">
+                            <span class="news-date">3 days ago</span>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Gaming Quiz Section -->
+    <section class="gaming-quiz">
+        <div class="container">
+            <h2 class="section-title">Test Your Gaming Knowledge</h2>
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h3>What's your gaming setup level?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-level="beginner">
+                            <i class="fas fa-seedling"></i>
+                            <span>Beginner</span>
+                            <small>Just starting out</small>
+                        </button>
+                        <button class="quiz-option" data-level="intermediate">
+                            <i class="fas fa-leaf"></i>
+                            <span>Intermediate</span>
+                            <small>Some experience</small>
+                        </button>
+                        <button class="quiz-option" data-level="advanced">
+                            <i class="fas fa-tree"></i>
+                            <span>Advanced</span>
+                            <small>Expert level</small>
+                        </button>
+                        <button class="quiz-option" data-level="pro">
+                            <i class="fas fa-crown"></i>
+                            <span>Pro</span>
+                            <small>Elite gamer</small>
+                        </button>
+                    </div>
+                </div>
+                <div class="quiz-result" id="quiz-result" style="display: none;">
+                    <h3>Your Gaming Level: <span id="level-title">Advanced</span></h3>
+                    <p id="level-description">You're an experienced gamer with great knowledge!</p>
+                    <div class="level-recommendations">
+                        <h4>Recommended for you:</h4>
+                        <ul id="level-recommendations">
+                            <li>High-end gaming peripherals</li>
+                            <li>Custom PC builds</li>
+                            <li>Professional gaming gear</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" onclick="resetQuiz()">Take Quiz Again</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- beastro Assistant Chatbot -->
+    <section class="ai-assistant">
+        <div class="container">
+            <h2 class="section-title">beastro Assistant</h2>
+            <p class="section-subtitle">Get instant help with gaming setup, PC building, and tech advice!</p>
+            
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <div class="chatbot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="chatbot-info">
+                        <h3>beastro AI</h3>
+                        <span class="status online">Online</span>
+                    </div>
+                    <button class="chatbot-toggle" id="chatbot-toggle">
+                        <i class="fas fa-comments"></i>
+                    </button>
+                </div>
+                
+                <div class="chatbot-body" id="chatbot-body">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Hello! I'm your beastro AI assistant. I can help you with:</p>
+                                <ul>
+                                    <li>🎮 Gaming setup recommendations</li>
+                                    <li>💻 PC building advice</li>
+                                    <li>🔧 Hardware troubleshooting</li>
+                                    <li>📊 Performance optimization</li>
+                                </ul>
+                                <p>What would you like to know about?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <div class="quick-questions">
+                            <button class="quick-question" onclick="askQuickQuestion('What gaming mouse should I buy?')">
+                                Best gaming mouse?
+                            </button>
+                            <button class="quick-question" onclick="askQuickQuestion('How to build a gaming PC?')">
+                                Build gaming PC?
+                            </button>
+                            <button class="quick-question" onclick="askQuickQuestion('Gaming headset recommendations?')">
+                                Gaming headset?
+                            </button>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <input type="text" id="chat-input" placeholder="Ask me anything about gaming..." maxlength="500">
+                            <button id="send-message" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span>AI is typing...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Initialize Particles.js with enhanced configuration -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Responsive particles configuration
+            function initParticles() {
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth <= 1024;
+                
+                // Adjust particle count based on screen size
+                let particleCount = 120;
+                let particleSize = 4;
+                let lineDistance = 150;
+                let moveSpeed = 3;
+                
+                if (isMobile) {
+                    particleCount = 60;
+                    particleSize = 3;
+                    lineDistance = 100;
+                    moveSpeed = 2;
+                } else if (isTablet) {
+                    particleCount = 80;
+                    particleSize = 3.5;
+                    lineDistance = 120;
+                    moveSpeed = 2.5;
+                }
+                
+                particlesJS("particles-js", {
+                    particles: {
+                        number: { 
+                            value: particleCount, 
+                            density: { 
+                                enable: true, 
+                                value_area: isMobile ? 400 : 800 
+                            } 
+                        },
+                        color: { 
+                            value: ["#06b6d4", "#a78bfa", "#6366f1", "#0ea5e9"] 
+                        },
+                        shape: { 
+                            type: "circle" 
+                        },
+                        opacity: { 
+                            value: 0.7, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable animations on mobile for better performance
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: { 
+                            value: particleSize, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable size animations on mobile
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: lineDistance,
+                            color: "#06b6d4",
+                            opacity: 0.6,
+                            width: isMobile ? 1 : 2
+                        },
+                        move: {
+                            enable: true,
+                            speed: moveSpeed,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: !isMobile, // Disable attraction on mobile for better performance
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { 
+                                enable: !isMobile, // Disable hover on mobile
+                                mode: "grab" 
+                            },
+                            onclick: { 
+                                enable: true, 
+                                mode: "push" 
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { 
+                                distance: isMobile ? 80 : 140, 
+                                line_linked: { 
+                                    opacity: 1 
+                                } 
+                            },
+                            push: { 
+                                particles_nb: isMobile ? 2 : 4 
+                            },
+                            repulse: {
+                                distance: isMobile ? 100 : 200,
+                                duration: 0.4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            
+            // Initialize particles
+            setTimeout(initParticles, 500);
+            
+            // Reinitialize particles on window resize for responsive behavior
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Destroy existing particles and reinitialize
+                    if (window.pJSDom && window.pJSDom.length > 0) {
+                        window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                        window.pJSDom = [];
+                    }
+                    initParticles();
+                }, 250);
+            });
+        });
+    </script>
+    
+    <!-- Home Page Interactive Features -->
+    <script>
+        // Animated Stats Counter
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseFloat(stat.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (target === 4.9) {
+                        stat.textContent = current.toFixed(1);
+                    } else {
+                        stat.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            });
+        }
+
+        // Gaming Quiz Functionality
+        function setupQuiz() {
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const quizQuestion = document.querySelector('.quiz-question');
+            const quizResult = document.getElementById('quiz-result');
+            
+            quizOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const level = option.getAttribute('data-level');
+                    showQuizResult(level);
+                });
+            });
+        }
+
+        function showQuizResult(level) {
+            const quizQuestion = document.querySelector('.quiz-question');
+            const quizResult = document.getElementById('quiz-result');
+            const levelTitle = document.getElementById('level-title');
+            const levelDescription = document.getElementById('level-description');
+            const levelRecommendations = document.getElementById('level-recommendations');
+            
+            const results = {
+                beginner: {
+                    title: 'Beginner',
+                    description: 'Welcome to the gaming world! You\'re just starting your journey.',
+                    recommendations: [
+                        'Basic gaming mouse and keyboard',
+                        'Entry-level gaming headset',
+                        'Gaming mousepad',
+                        'Simple gaming setup guide'
+                    ]
+                },
+                intermediate: {
+                    title: 'Intermediate',
+                    description: 'You\'re getting the hang of gaming! Time to level up your setup.',
+                    recommendations: [
+                        'Mid-range gaming peripherals',
+                        'Gaming chair and desk',
+                        'RGB lighting setup',
+                        'Performance optimization tips'
+                    ]
+                },
+                advanced: {
+                    title: 'Advanced',
+                    description: 'Impressive! You\'re an experienced gamer with great knowledge.',
+                    recommendations: [
+                        'High-end gaming peripherals',
+                        'Custom PC builds',
+                        'Professional gaming gear',
+                        'Advanced setup optimization'
+                    ]
+                },
+                pro: {
+                    title: 'Pro',
+                    description: 'Elite level! You\'re a gaming master with top-tier equipment.',
+                    recommendations: [
+                        'Premium gaming hardware',
+                        'Professional streaming setup',
+                        'Competitive gaming gear',
+                        'Esports-level optimization'
+                    ]
+                }
+            };
+            
+            const result = results[level];
+            levelTitle.textContent = result.title;
+            levelDescription.textContent = result.description;
+            
+            levelRecommendations.innerHTML = result.recommendations.map(rec => `<li>${rec}</li>`).join('');
+            
+            quizQuestion.style.display = 'none';
+            quizResult.style.display = 'block';
+        }
+
+        function resetQuiz() {
+            const quizQuestion = document.querySelector('.quiz-question');
+            const quizResult = document.getElementById('quiz-result');
+            
+            quizQuestion.style.display = 'block';
+            quizResult.style.display = 'none';
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start stats animation when in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            const statsSection = document.querySelector('.gaming-stats');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+            
+            // Setup quiz
+            setupQuiz();
+            
+            // Setup chatbot
+            setupChatbot();
+        });
+
+        // AI Chatbot with Gemini API
+        const GEMINI_API_KEY = 'AIzaSyDsomUgyOp_rKipDubYPnssGYU3sjJbt88';
+        const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+
+        function setupChatbot() {
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-message');
+            const chatMessages = document.getElementById('chat-messages');
+
+            // Toggle chatbot
+            chatbotToggle.addEventListener('click', () => {
+                chatbotBody.classList.toggle('active');
+                chatbotToggle.classList.toggle('active');
+            });
+
+            // Send message on Enter key
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Send message on button click
+            sendButton.addEventListener('click', sendMessage);
+
+            // Focus input when chatbot opens
+            chatbotToggle.addEventListener('click', () => {
+                setTimeout(() => chatInput.focus(), 300);
+            });
+        }
+
+        function askQuickQuestion(question) {
+            addUserMessage(question);
+            sendToGemini(question);
+        }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chat-input');
+            const message = chatInput.value.trim();
+            
+            if (message) {
+                addUserMessage(message);
+                sendToGemini(message);
+                chatInput.value = '';
+            }
+        }
+
+        function addUserMessage(message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user-message';
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <p>${escapeHtml(message)}</p>
+                </div>
+                <div class="message-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function addBotMessage(message) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot-message';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>${message}</p>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        async function sendToGemini(message) {
+            const typingIndicator = document.getElementById('typing-indicator');
+            typingIndicator.style.display = 'flex';
+
+            try {
+                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: `You are a helpful AI gaming assistant. The user asked: "${message}". Please provide a helpful, informative response about gaming, PC building, or tech advice. Keep it conversational and under 150 words.`
+                            }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                    const botResponse = data.candidates[0].content.parts[0].text;
+                    addBotMessage(botResponse);
+                } else {
+                    addBotMessage("I'm sorry, I couldn't process your request right now. Please try again in a moment.");
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                addBotMessage("I'm experiencing some technical difficulties. Please try again later or contact our support team.");
+            } finally {
+                typingIndicator.style.display = 'none';
+            }
+        }
+
+        function scrollToBottom() {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+    
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+   
+    <script src="js/search-filter.js"></script>
+
+
+    
+</body>
+</html> 
