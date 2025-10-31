@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beastro - Custom Build</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link active">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                
+
+            </div>
+            
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="particles"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: PKR <span id="cart-total">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary continue-shopping-btn" id="continue-shopping-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Build Section -->
+    <section id="custom-build" class="custom-build">
+        <div class="container">
+            <h2 class="section-title">Custom PC Builder</h2>
+            
+            <div class="builder-container">
+                <div class="builder-sidebar">
+                    <h3>Select Components</h3>
+                    
+                    <div class="component-category">
+                        <h4>Processor (CPU)</h4>
+                        <select id="cpu-select" class="component-select">
+                            <option value="">Select CPU</option>
+                            <option value="cpu1" data-price="569.99" data-name="Intel Core i9-13900K">Intel Core i9-13900K - $569.99</option>
+                            <option value="cpu2" data-price="699.99" data-name="AMD Ryzen 9 7950X">AMD Ryzen 9 7950X - $699.99</option>
+                            <option value="cpu3" data-price="399.99" data-name="Intel Core i7-13700K">Intel Core i7-13700K - $399.99</option>
+                        </select>
+                    </div>
+
+                    <div class="component-category">
+                        <h4>Graphics Card (GPU)</h4>
+                        <select id="gpu-select" class="component-select">
+                            <option value="">Select GPU</option>
+                            <option value="gpu1" data-price="1599.99" data-name="NVIDIA RTX 4090">NVIDIA RTX 4090 - $1599.99</option>
+                            <option value="gpu2" data-price="999.99" data-name="AMD RX 7900 XTX">AMD RX 7900 XTX - $999.99</option>
+                            <option value="gpu3" data-price="1199.99" data-name="NVIDIA RTX 4080">NVIDIA RTX 4080 - $1199.99</option>
+                        </select>
+                    </div>
+
+                    <div class="component-category">
+                        <h4>Memory (RAM)</h4>
+                        <select id="ram-select" class="component-select">
+                            <option value="">Select RAM</option>
+                            <option value="ram1" data-price="199.99" data-name="32GB DDR5-6000">32GB DDR5-6000 - $199.99</option>
+                            <option value="ram2" data-price="399.99" data-name="64GB DDR5-6000">64GB DDR5-6000 - $199.99</option>
+                            <option value="ram3" data-price="99.99" data-name="16GB DDR5-6000">16GB DDR5-6000 - $99.99</option>
+                        </select>
+                    </div>
+
+                    <div class="component-category">
+                        <h4>Storage</h4>
+                        <select id="storage-select" class="component-select">
+                            <option value="">Select Storage</option>
+                            <option value="storage1" data-price="199.99" data-name="2TB NVMe SSD">2TB NVMe SSD - $199.99</option>
+                            <option value="storage2" data-price="399.99" data-name="4TB NVMe SSD">4TB NVMe SSD - $399.99</option>
+                            <option value="storage3" data-price="99.99" data-name="1TB NVMe SSD">1TB NVMe SSD - $99.99</option>
+                        </select>
+                    </div>
+
+                    <button id="build-pc-btn" class="btn btn-primary build-pc-btn" disabled>
+                        Build PC
+                    </button>
+                </div>
+
+                <div class="builder-preview">
+                    <div class="pc-visualization">
+                        <div class="pc-case-main">
+                            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f7?w=400&h=300&fit=crop&crop=center" alt="Gaming PC Case" class="pc-case-image">
+                            <div class="pc-overlay">
+                                <div class="component-indicators">
+                                    <div class="indicator cpu-indicator" data-component="cpu">
+                                        <i class="fas fa-microchip"></i>
+                                        <span>CPU</span>
+                                    </div>
+                                    <div class="indicator gpu-indicator" data-component="gpu">
+                                        <i class="fas fa-tv"></i>
+                                        <span>GPU</span>
+                                    </div>
+                                    <div class="indicator ram-indicator" data-component="ram">
+                                        <i class="fas fa-memory"></i>
+                                        <span>RAM</span>
+                                    </div>
+                                    <div class="indicator storage-indicator" data-component="storage">
+                                        <i class="fas fa-hdd"></i>
+                                        <span>Storage</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pc-details">
+                            <div class="pc-specs">
+                                <h4>PC Specifications</h4>
+                                <div class="spec-item">
+                                    <i class="fas fa-microchip"></i>
+                                    <span id="cpu-spec">Select CPU</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-tv"></i>
+                                    <span id="gpu-spec">Select GPU</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-memory"></i>
+                                    <span id="ram-spec">Select RAM</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-hdd"></i>
+                                    <span id="storage-spec">Select Storage</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="specs-display">
+                        <h4 id="total-price">Total Price: $0.00</h4>
+                        <p id="performance-estimate">Estimated Performance: Select components</p>
+                        
+                        <div id="selected-components">
+                            <!-- Selected components will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Initialize Particles.js with enhanced configuration -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Responsive particles configuration
+            function initParticles() {
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth <= 1024;
+                
+                // Adjust particle count based on screen size
+                let particleCount = 120;
+                let particleSize = 4;
+                let lineDistance = 150;
+                let moveSpeed = 3;
+                
+                if (isMobile) {
+                    particleCount = 60;
+                    particleSize = 3;
+                    lineDistance = 100;
+                    moveSpeed = 2;
+                } else if (isTablet) {
+                    particleCount = 80;
+                    particleSize = 3.5;
+                    lineDistance = 120;
+                    moveSpeed = 2.5;
+                }
+                
+                particlesJS("particles-js", {
+                    particles: {
+                        number: { 
+                            value: particleCount, 
+                            density: { 
+                                enable: true, 
+                                value_area: isMobile ? 400 : 800 
+                            } 
+                        },
+                        color: { 
+                            value: ["#06b6d4", "#a78bfa", "#6366f1", "#0ea5e9"] 
+                        },
+                        shape: { 
+                            type: "circle" 
+                        },
+                        opacity: { 
+                            value: 0.7, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable animations on mobile for better performance
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: { 
+                            value: particleSize, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable size animations on mobile
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: lineDistance,
+                            color: "#06b6d4",
+                            opacity: 0.6,
+                            width: isMobile ? 1 : 2
+                        },
+                        move: {
+                            enable: true,
+                            speed: moveSpeed,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: !isMobile, // Disable attraction on mobile for better performance
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { 
+                                enable: !isMobile, // Disable hover on mobile
+                                mode: "grab" 
+                            },
+                            onclick: { 
+                                enable: true, 
+                                mode: "push" 
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { 
+                                distance: isMobile ? 80 : 140, 
+                                line_linked: { 
+                                    opacity: 1 
+                                } 
+                            },
+                            push: { 
+                                particles_nb: isMobile ? 2 : 4 
+                            },
+                            repulse: {
+                                distance: isMobile ? 100 : 200,
+                                duration: 0.4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            
+            // Initialize particles
+            setTimeout(initParticles, 500);
+            
+            // Reinitialize particles on window resize for responsive behavior
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Destroy existing particles and reinitialize
+                    if (window.pJSDom && window.pJSDom.length > 0) {
+                        window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                        window.pJSDom = [];
+                    }
+                    initParticles();
+                }, 250);
+            });
+        });
+    </script>
+    
+    <!-- Custom Build JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Custom PC Builder functionality
+            const cpuSelect = document.getElementById('cpu-select');
+            const gpuSelect = document.getElementById('gpu-select');
+            const ramSelect = document.getElementById('ram-select');
+            const storageSelect = document.getElementById('storage-select');
+            const buildPcBtn = document.getElementById('build-pc-btn');
+            const totalPriceElement = document.getElementById('total-price');
+            const performanceEstimate = document.getElementById('performance-estimate');
+            const selectedComponents = document.getElementById('selected-components');
+
+            let selectedParts = {
+                cpu: null,
+                gpu: null,
+                ram: null,
+                storage: null
+            };
+
+            // Add event listeners to all component selects
+            [cpuSelect, gpuSelect, ramSelect, storageSelect].forEach(select => {
+                select.addEventListener('change', updateBuild);
+            });
+
+            // Update build when components change
+            function updateBuild() {
+                // Get selected components
+                selectedParts.cpu = cpuSelect.value ? {
+                    id: cpuSelect.value,
+                    name: cpuSelect.options[cpuSelect.selectedIndex].dataset.name,
+                    price: parseFloat(cpuSelect.options[cpuSelect.selectedIndex].dataset.price)
+                } : null;
+
+                selectedParts.gpu = gpuSelect.value ? {
+                    id: gpuSelect.value,
+                    name: gpuSelect.options[gpuSelect.selectedIndex].dataset.name,
+                    price: parseFloat(gpuSelect.options[gpuSelect.selectedIndex].dataset.price)
+                } : null;
+
+                selectedParts.ram = ramSelect.value ? {
+                    id: ramSelect.value,
+                    name: ramSelect.options[ramSelect.selectedIndex].dataset.name,
+                    price: parseFloat(ramSelect.options[ramSelect.selectedIndex].dataset.price)
+                } : null;
+
+                selectedParts.storage = storageSelect.value ? {
+                    id: storageSelect.value,
+                    name: storageSelect.options[storageSelect.selectedIndex].dataset.name,
+                    price: parseFloat(storageSelect.options[storageSelect.selectedIndex].dataset.price)
+                } : null;
+
+                // Calculate total price
+                const totalPrice = Object.values(selectedParts)
+                    .filter(part => part !== null)
+                    .reduce((sum, part) => sum + part.price, 0);
+
+                // Update total price display
+                totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+
+                // Update performance estimate
+                updatePerformanceEstimate();
+
+                // Update selected components display
+                updateSelectedComponentsDisplay();
+
+                // Enable/disable build button
+                const allComponentsSelected = Object.values(selectedParts).every(part => part !== null);
+                buildPcBtn.disabled = !allComponentsSelected;
+
+                if (allComponentsSelected) {
+                    buildPcBtn.textContent = 'Add to Cart';
+                } else {
+                    buildPcBtn.textContent = 'Build PC';
+                }
+            }
+
+            // Update performance estimate based on selected components
+            function updatePerformanceEstimate() {
+                let performance = 'Basic';
+                let score = 0;
+
+                // CPU scoring
+                if (selectedParts.cpu) {
+                    if (selectedParts.cpu.id === 'cpu1' || selectedParts.cpu.id === 'cpu2') score += 40;
+                    else if (selectedParts.cpu.id === 'cpu3') score += 30;
+                }
+
+                // GPU scoring
+                if (selectedParts.gpu) {
+                    if (selectedParts.gpu.id === 'gpu1') score += 40;
+                    else if (selectedParts.gpu.id === 'gpu2') score += 35;
+                    else if (selectedParts.gpu.id === 'gpu3') score += 30;
+                }
+
+                // RAM scoring
+                if (selectedParts.ram) {
+                    if (selectedParts.ram.id === 'ram2') score += 15;
+                    else if (selectedParts.ram.id === 'ram1') score += 10;
+                    else if (selectedParts.ram.id === 'ram3') score += 5;
+                }
+
+                // Storage scoring
+                if (selectedParts.storage) {
+                    if (selectedParts.storage.id === 'storage2') score += 5;
+                    else if (selectedParts.storage.id === 'storage1') score += 5;
+                    else if (selectedParts.storage.id === 'storage3') score += 3;
+                }
+
+                // Determine performance level
+                if (score >= 80) performance = 'Ultra';
+                else if (score >= 60) performance = 'High';
+                else if (score >= 40) performance = 'Medium';
+                else if (score >= 20) performance = 'Low';
+
+                performanceEstimate.textContent = `Estimated Performance: ${performance} (Score: ${score}/100)`;
+            }
+
+            // Update selected components display
+            function updateSelectedComponentsDisplay() {
+                selectedComponents.innerHTML = '';
+
+                Object.values(selectedParts).forEach(part => {
+                    if (part) {
+                        const componentDiv = document.createElement('div');
+                        componentDiv.className = 'selected-component';
+                        componentDiv.innerHTML = `
+                            <span class="component-name">${part.name}</span>
+                            <span class="component-price">$${part.price}</span>
+                        `;
+                        selectedComponents.appendChild(componentDiv);
+                    }
+                });
+
+                // Update PC specs display
+                updatePCSpecs();
+            }
+
+            // Update PC specifications display
+            function updatePCSpecs() {
+                const cpuSpec = document.getElementById('cpu-spec');
+                const gpuSpec = document.getElementById('gpu-spec');
+                const ramSpec = document.getElementById('ram-spec');
+                const storageSpec = document.getElementById('storage-spec');
+
+                cpuSpec.textContent = selectedParts.cpu ? selectedParts.cpu.name : 'Select CPU';
+                gpuSpec.textContent = selectedParts.gpu ? selectedParts.gpu.name : 'Select GPU';
+                ramSpec.textContent = selectedParts.ram ? selectedParts.ram.name : 'Select RAM';
+                storageSpec.textContent = selectedParts.storage ? selectedParts.storage.name : 'Select Storage';
+
+                // Update component indicators
+                updateComponentIndicators();
+            }
+
+            // Update component indicators
+            function updateComponentIndicators() {
+                const indicators = document.querySelectorAll('.indicator');
+                
+                indicators.forEach(indicator => {
+                    const componentType = indicator.dataset.component;
+                    const isSelected = selectedParts[componentType] !== null;
+                    
+                    if (isSelected) {
+                        indicator.classList.add('selected');
+                        indicator.style.background = 'rgba(16, 185, 129, 0.8)';
+                    } else {
+                        indicator.classList.remove('selected');
+                        indicator.style.background = 'rgba(255, 255, 255, 0.1)';
+                    }
+                });
+            }
+
+            // Handle build PC button click
+            buildPcBtn.addEventListener('click', function() {
+                if (buildPcBtn.textContent === 'Add to Cart') {
+                    addCustomPCToCart();
+                }
+            });
+
+            // Add custom PC to cart
+            function addCustomPCToCart() {
+                const allComponentsSelected = Object.values(selectedParts).every(part => part !== null);
+                
+                if (!allComponentsSelected) {
+                    alert('Please select all components first!');
+                    return;
+                }
+
+                // Create custom PC object
+                const customPC = {
+                    id: 'custom-pc-' + Date.now(),
+                    name: 'Custom Gaming PC',
+                    price: parseFloat(totalPriceElement.textContent.split('$')[1]),
+                    category: 'Custom Build',
+                    components: selectedParts,
+                    image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f7?w=400&h=300&fit=crop&crop=center',
+                    quantity: 1
+                };
+
+                // Get existing cart from localStorage using the correct key
+                let cart = JSON.parse(localStorage.getItem('gamingCart') || '[]');
+                
+                // Check if custom PC already exists in cart
+                const existingIndex = cart.findIndex(item => item.id === customPC.id);
+                
+                if (existingIndex !== -1) {
+                    // Update quantity if already exists
+                    cart[existingIndex].quantity += 1;
+                } else {
+                    // Add new custom PC to cart
+                    cart.push(customPC);
+                }
+
+                // Save updated cart to localStorage
+                localStorage.setItem('gamingCart', JSON.stringify(cart));
+
+                // Update cart count using the existing cart system
+                updateCartCount();
+
+                // Show success message
+                showSuccessMessage('Custom PC added to cart successfully!');
+
+                // Reset form
+                resetBuilder();
+            }
+
+            // Update cart count
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('gamingCart') || '[]');
+                const cartCount = document.getElementById('cart-count');
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+            }
+
+            // Show success message
+            function showSuccessMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'success-message';
+                messageDiv.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <span>${message}</span>
+                `;
+                document.body.appendChild(messageDiv);
+
+                // Show message
+                setTimeout(() => messageDiv.classList.add('show'), 100);
+
+                // Remove message after 3 seconds
+                setTimeout(() => {
+                    messageDiv.classList.remove('show');
+                    setTimeout(() => messageDiv.remove(), 300);
+                }, 3000);
+            }
+
+            // Reset builder form
+            function resetBuilder() {
+                cpuSelect.value = '';
+                gpuSelect.value = '';
+                ramSelect.value = '';
+                storageSelect.value = '';
+                
+                selectedParts = {
+                    cpu: null,
+                    gpu: null,
+                    ram: null,
+                    storage: null
+                };
+
+                totalPriceElement.textContent = 'Total Price: $0.00';
+                performanceEstimate.textContent = 'Estimated Performance: Select components';
+                selectedComponents.innerHTML = '';
+                buildPcBtn.disabled = true;
+                buildPcBtn.textContent = 'Build PC';
+
+                // Reset PC specs display
+                updatePCSpecs();
+            }
+
+            // Initialize cart count
+            updateCartCount();
+        });
+    </script>
+
+    <!-- Custom Build Styles -->
+    <style>
+        /* PC Visualization Styles */
+        .builder-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .pc-visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .pc-case-main {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .pc-case-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .pc-case-main:hover .pc-case-image {
+            transform: scale(1.05);
+        }
+
+        .pc-case-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(0, 212, 255, 0.1) 25%,
+                rgba(168, 139, 250, 0.1) 50%,
+                rgba(99, 102, 241, 0.1) 75%,
+                transparent 100%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .pc-case-main:hover::before {
+            opacity: 1;
+        }
+
+        .pc-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 212, 255, 0.1) 0%,
+                rgba(168, 139, 250, 0.1) 50%,
+                rgba(99, 102, 241, 0.1) 100%
+            );
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .component-indicators {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 16px;
+            padding: 16px;
+            width: 100%;
+            height: 100%;
+            align-content: center; /* keep fully inside the case */
+            justify-items: center;
+        }
+
+        .indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .indicator:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .indicator.selected {
+            background: rgba(16, 185, 129, 0.8);
+            border-color: rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            transform: scale(1.05);
+        }
+
+        .indicator.selected i {
+            color: #ffffff;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .indicator i {
+            font-size: 1.25rem;
+            color: var(--white);
+        }
+
+        .indicator span {
+            font-size: 0.75rem;
+            color: var(--white);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Ensure 4 icons are visible on small screens */
+        @media (max-width: 480px) {
+            .pc-case-image { height: 220px; }
+            .component-indicators { gap: 10px; padding: 12px; }
+            .indicator { padding: 10px; border-radius: 10px; }
+            .indicator i { font-size: 1.1rem; }
+            .indicator span { font-size: 0.7rem; }
+        }
+
+        .pc-details {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .pc-specs {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .pc-specs h4 {
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .spec-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-item i {
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            width: 25px;
+            text-align: center;
+        }
+
+        .spec-item span {
+            color: var(--white);
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .pc-case::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, #a78bfa, #6366f1);
+            border-radius: 1px;
+        }
+
+        .case-fans {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fan {
+            width: 25px;
+            height: 25px;
+            background: #374151;
+            border: 2px solid #6b7280;
+            border-radius: 50%;
+            position: relative;
+            animation: spin 3s linear infinite;
+        }
+
+        .fan::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 15px;
+            background: #9ca3af;
+            transform: translate(-50%, -50%);
+        }
+
+        .fan::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 15px;
+            height: 2px;
+            background: #9ca3af;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gpu-slot {
+            position: absolute;
+            bottom: 40px;
+            left: 20px;
+            width: 120px;
+            height: 15px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            border-radius: 8px;
+            border: 1px solid #60a5fa;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .gpu-slot::before {
+            content: 'GPU';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #60a5fa;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .cpu-slot {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            border-radius: 8px;
+            border: 1px solid #f87171;
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+        }
+
+        .cpu-slot::before {
+            content: 'CPU';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #f87171;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .ram-slots {
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ram-stick {
+            width: 8px;
+            height: 25px;
+            background: linear-gradient(180deg, #059669, #10b981);
+            border-radius: 4px;
+            border: 1px solid #34d399;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+        }
+
+        .ram-stick::before {
+            content: 'RAM';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #34d399;
+            font-size: 8px;
+            font-weight: bold;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .specs-display {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            min-width: 300px;
+        }
+
+        .specs-display h4 {
+            color: #10b981;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .specs-display p {
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        /* Component Selection Styles */
+        .component-category {
+            margin-bottom: 20px;
+        }
+
+        .component-category h4 {
+            color: #e5e7eb;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .component-select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .component-select:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .component-select:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .component-select option {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 8px 12px;
+        }
+
+        .component-select option:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Builder Container Styles */
+        .builder-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 30px;
+        }
+
+        .builder-sidebar {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .builder-sidebar h3 {
+            color: #e5e7eb;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        /* Success Message Styles */
+        .success-message {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: rgba(16, 185, 129, 0.9);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .success-message.show {
+            transform: translateX(0);
+        }
+
+        .success-message i {
+            font-size: 1.2rem;
+            color: #10b981;
+        }
+
+        .selected-component {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin: 5px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .component-name {
+            font-weight: 500;
+            color: #e5e7eb;
+        }
+
+        .component-price {
+            font-weight: 600;
+            color: #10b981;
+        }
+
+        .build-pc-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .build-pc-btn:not(:disabled) {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+
+        .build-pc-btn:not(:disabled):hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .builder-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .pc-visualization {
+                max-width: 100%;
+            }
+            
+            .pc-case-main {
+                max-width: 100%;
+            }
+            
+            .pc-case-image {
+                height: 200px;
+            }
+            
+            .component-indicators {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .indicator {
+                padding: 12px;
+            }
+            
+            .specs-display {
+                min-width: 250px;
+            }
+            
+            .pc-specs {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pc-case-image {
+                height: 180px;
+            }
+            
+            .component-indicators {
+                padding: 10px;
+            }
+            
+            .indicator {
+                padding: 10px;
+            }
+            
+            .indicator i {
+                font-size: 1.2rem;
+            }
+            
+            .indicator span {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+    <script src="js/search-filter.js"></script>
+</body>
+</html> 

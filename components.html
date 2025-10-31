@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beastro - Components</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo-section">
+                <a href="index.html" class="nav-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>beastro</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu-section">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">
+                            <i class="fas fa-box"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="custombuild.html" class="nav-link">
+                            <i class="fas fa-tools"></i>
+                            Custom Build
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="components.html" class="nav-link active">
+                            <i class="fas fa-microchip"></i>
+                            Components
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-envelope"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="nav-auth-section" id="nav-auth-section">
+                    <!-- Auth content will be populated by auth.js -->
+                </div>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="particles"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: PKR <span id="cart-total">0.00</span></strong>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary continue-shopping-btn" id="continue-shopping-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Components Section -->
+    <section id="components" class="components">
+        <div class="container">
+            <h2 class="section-title">PC Components</h2>
+            
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-box">
+                    <input type="text" id="component-search" class="search-input" placeholder="Search components by name, specs...">
+                    <button type="button" id="component-search-btn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="advanced-filters">
+                    <div class="filter-group">
+                        <label for="component-price-filter">Price Range:</label>
+                        <select id="component-price-filter" class="filter-select">
+                            <option value="">All Prices</option>
+                            <option value="0-100">Under $100</option>
+                            <option value="100-300">$100 - $300</option>
+                            <option value="300-500">$300 - $500</option>
+                            <option value="500+">$500+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="component-type-filter">Component Type:</label>
+                        <select id="component-type-filter" class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="cpu">CPU</option>
+                            <option value="gpu">GPU</option>
+                            <option value="ram">RAM</option>
+                            <option value="storage">Storage</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" id="clear-component-filters" class="clear-filters-btn">
+                        <i class="fas fa-times"></i>
+                        Clear All
+                    </button>
+                </div>
+                
+                <div class="results-info">
+                    <span id="component-results-count">Showing all components</span>
+                    <span id="component-active-filters"></span>
+                </div>
+            </div>
+            
+            <div class="components-tabs">
+                <button class="tab-btn active" data-tab="cpu">
+                    <i class="fas fa-microchip"></i>
+                    CPU
+                </button>
+                <button class="tab-btn" data-tab="gpu">
+                    <i class="fas fa-tv"></i>
+                    GPU
+                </button>
+                <button class="tab-btn" data-tab="ram">
+                    <i class="fas fa-memory"></i>
+                    RAM
+                </button>
+                <button class="tab-btn" data-tab="storage">
+                    <i class="fas fa-hdd"></i>
+                    Storage
+                </button>
+            </div>
+            
+            <div class="tab-content active" id="cpu-content">
+                <div class="components-grid">
+                    <div class="component-item" data-type="cpu">
+                        <div class="component-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <img src="https://m.media-amazon.com/images/I/51x19d4dPuL._AC_SX679_.jpg" alt="Intel i9">
+                        <h3><i class="fas fa-microchip"></i> Intel Core i9-13900K</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Cores:</span>
+                                <span class="spec-value">24 cores</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">5.8GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">253W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$569.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="cpu1" data-product-name="Intel Core i9-13900K" data-product-price="569.99">
+                            Buy Now
+                        </button>
+                    </div>
+                    
+                    <div class="component-item" data-type="cpu">
+                        <div class="component-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <img src="https://www.techpowerup.com/review/amd-ryzen-9-7950x/images/small@1x.png" alt="AMD 7950X">
+                        <h3><i class="fas fa-microchip"></i> AMD Ryzen 9 7950X</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Cores:</span>
+                                <span class="spec-value">16 cores</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">5.7GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">170W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$699.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="cpu2" data-product-name="AMD Ryzen 9 7950X" data-product-price="699.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item" data-type="cpu">
+                        <div class="component-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <img src="https://m.media-amazon.com/images/I/51x19d4dPuL._AC_SX679_.jpg"" alt="Intel i7">
+                        <h3><i class="fas fa-microchip"></i> Intel Core i7-13700K</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Cores:</span>
+                                <span class="spec-value">16 cores</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">5.4GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">253W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$409.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="cpu3" data-product-name="Intel Core i7-13700K" data-product-price="409.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item">
+                        <div class="component-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <img src="https://www.techpowerup.com/review/amd-ryzen-9-7950x/images/small@1x.png" alt="AMD 7700X">
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Cores:</span>
+                                <span class="spec-value">8 cores</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">5.4GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">105W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$399.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="cpu4" data-product-name="AMD Ryzen 7 7700X" data-product-price="399.99">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="gpu-content">
+                <div class="components-grid">
+                    <div class="component-item" data-type="gpu">
+                        <div class="component-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <img src="https://images.nvidia.com/aem-dam/Solutions/geforce/news/geforce-rtx-4090-custom-card-roundup/ROG-Strix-GeForce-RTX-4090_2D.png" alt="RTX 4090">
+                        <h3><i class="fas fa-gamepad"></i> NVIDIA RTX 4090</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Memory:</span>
+                                <span class="spec-value">24GB GDDR6X</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">2.52GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">450W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$1,599.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="gpu1" data-product-name="NVIDIA RTX 4090" data-product-price="1599.99">
+                            Buy Now
+                        </button>
+                    </div>
+                    
+                    <div class="component-item">
+                        <div class="component-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <img src="https://images.nvidia.com/aem-dam/Solutions/geforce/news/geforce-rtx-4090-custom-card-roundup/ROG-Strix-GeForce-RTX-4090_2D.png" alt="RX 7900">
+                        <h3><i class="fas fa-gamepad"></i> AMD RX 7900 XTX</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Memory:</span>
+                                <span class="spec-value">24GB GDDR6</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">2.5GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">355W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$999.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="gpu2" data-product-name="AMD RX 7900 XTX" data-product-price="999.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item">
+                        <div class="component-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <img src="https://images.nvidia.com/aem-dam/Solutions/geforce/news/geforce-rtx-4090-custom-card-roundup/ROG-Strix-GeForce-RTX-4090_2D.png" alt="RTX 4080">
+                        <h3><i class="fas fa-gamepad"></i> NVIDIA RTX 4080</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Memory:</span>
+                                <span class="spec-value">16GB GDDR6X</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">2.51GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">320W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$1,199.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="gpu3" data-product-name="NVIDIA RTX 4080" data-product-price="1199.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item">
+                        <img src="https://images.nvidia.com/aem-dam/Solutions/geforce/news/geforce-rtx-4090-custom-card-roundup/ROG-Strix-GeForce-RTX-4090_2D.png" alt="RTX 4070 Ti">
+                        <h3>NVIDIA RTX 4070 Ti</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Memory:</span>
+                                <span class="spec-value">12GB GDDR6X</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Boost:</span>
+                                <span class="spec-value">2.61GHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">TDP:</span>
+                                <span class="spec-value">285W</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$799.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="gpu4" data-product-name="NVIDIA RTX 4070 Ti" data-product-price="799.99">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="ram-content">
+                <div class="components-grid">
+                    <div class="component-item">
+                        <img src="https://www.digitalcitizen.life/wp-content/uploads/2022/09/kingston_fury_beast_rgb_dddr5-6000.png" alt="32GB DDR5">
+                        <h3>32GB DDR5-6000</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">32GB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Speed:</span>
+                                <span class="spec-value">6000MHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Latency:</span>
+                                <span class="spec-value">CL36</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$199.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="ram1" data-product-name="32GB DDR5-6000" data-product-price="199.99">
+                            Buy Now
+                        </button>
+                    </div>
+                    
+                                        <div class="component-item">
+                        <img src="https://www.digitalcitizen.life/wp-content/uploads/2022/09/kingston_fury_beast_rgb_dddr5-6000.png" alt="64GB DDR5">
+                        <h3>64GB DDR5-6000</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">64GB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Speed:</span>
+                                <span class="spec-value">6000MHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Latency:</span>
+                                <span class="spec-value">CL36</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$399.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="ram2" data-product-name="64GB DDR5-6000" data-product-price="399.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item">
+                        <img src="https://www.digitalcitizen.life/wp-content/uploads/2022/09/kingston_fury_beast_rgb_dddr5-6000.png" alt="16GB DDR5">
+                        <h3>16GB DDR5-6000</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">16GB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Speed:</span>
+                                <span class="spec-value">6000MHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Latency:</span>
+                                <span class="spec-value">CL36</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$99.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="ram3" data-product-name="16GB DDR5-6000" data-product-price="99.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item">
+                        <img src="https://www.digitalcitizen.life/wp-content/uploads/2022/09/kingston_fury_beast_rgb_dddr5-6000.png" alt="128GB DDR5">
+                        <h3>128GB DDR5-6000</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">128GB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Speed:</span>
+                                <span class="spec-value">6000MHz</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Latency:</span>
+                                <span class="spec-value">CL36</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$799.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="ram4" data-product-name="128GB DDR5-6000" data-product-price="799.99">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="storage-content">
+                <div class="components-grid">
+                    <div class="component-item">
+                        <img src="https://www.tonymacx86.com/data/attachments/299/299973-8b78f63a7a7be9e28232b2c87c6f7ed9.jpg?hash=i3j2Onp76e" alt="2TB NVMe">
+                        <h3>2TB NVMe SSD</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">2TB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Interface:</span>
+                                <span class="spec-value">PCIe 4.0</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Read:</span>
+                                <span class="spec-value">7000MB/s</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$199.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="storage1" data-product-name="2TB NVMe SSD" data-product-price="199.99">
+                            Buy Now
+                        </button>
+                    </div>
+                    
+                    <div class="component-item">
+                        <img src="https://www.tonymacx86.com/data/attachments/299/299973-8b78f63a7a7be9e28232b2c87c6f7ed9.jpg?hash=i3j2Onp76e" alt="4TB NVMe">
+                        <h3>4TB NVMe SSD</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">4TB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Interface:</span>
+                                <span class="spec-value">PCIe 4.0</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Read:</span>
+                                <span class="spec-value">7000MB/s</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$399.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="storage2" data-product-name="4TB NVMe SSD" data-product-price="399.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item">
+                        <img src="https://www.tonymacx86.com/data/attachments/299/299973-8b78f63a7a7be9e28232b2c87c6f7ed9.jpg?hash=i3j2Onp76e" alt="1TB NVMe">
+                        <h3>1TB NVMe SSD</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">1TB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Interface:</span>
+                                <span class="spec-value">PCIe 4.0</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Read:</span>
+                                <span class="spec-value">7000MB/s</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$99.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="storage3" data-product-name="1TB NVMe SSD" data-product-price="99.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <div class="component-item">
+                        <img src="https://www.tonymacx86.com/data/attachments/299/299973-8b78f63a7a7be9e28232b2c87c6f7ed9.jpg?hash=i3j2Onp76e" alt="8TB HDD">
+                        <h3>8TB HDD</h3>
+                        <div class="component-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Capacity:</span>
+                                <span class="spec-value">8TB</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Interface:</span>
+                                <span class="spec-value">SATA 6.0</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Speed:</span>
+                                <span class="spec-value">7200RPM</span>
+                            </div>
+                        </div>
+                        <div class="component-price">$149.99</div>
+                        <button class="btn btn-primary buy-now-btn" data-product-id="storage4" data-product-name="8TB HDD" data-product-price="149.99">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>beastro</h3>
+                    <p>Your ultimate destination for premium gaming PC accessories and components.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="custombuild.html">Custom Build</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for latest gaming tech updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 beastro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Component Icons Styles -->
+    <style>
+        .component-icon {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(16, 185, 129, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .component-item {
+            position: relative;
+        }
+
+        .component-item h3 i {
+            margin-right: 8px;
+            color: #10b981;
+        }
+
+        /* Different colors for different component types */
+        .component-item[data-type="cpu"] .component-icon {
+            background: rgba(239, 68, 68, 0.9);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .component-item[data-type="gpu"] .component-icon {
+            background: rgba(59, 130, 246, 0.9);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .component-item[data-type="ram"] .component-icon {
+            background: rgba(16, 185, 129, 0.9);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .component-item[data-type="storage"] .component-icon {
+            background: rgba(168, 85, 247, 0.9);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .component-item[data-type="motherboard"] .component-icon {
+            background: rgba(245, 158, 11, 0.9);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .component-item[data-type="psu"] .component-icon {
+            background: rgba(236, 72, 153, 0.9);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        .component-item[data-type="case"] .component-icon {
+            background: rgba(107, 114, 128, 0.9);
+            box-shadow: 0 4px 15px rgba(107, 114, 128, 0.3);
+        }
+
+        .component-item[data-type="cooling"] .component-icon {
+            background: rgba(6, 182, 212, 0.9);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+    </style>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Initialize Particles.js with enhanced configuration -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Responsive particles configuration
+            function initParticles() {
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth <= 1024;
+                
+                // Adjust particle count based on screen size
+                let particleCount = 120;
+                let particleSize = 4;
+                let lineDistance = 150;
+                let moveSpeed = 3;
+                
+                if (isMobile) {
+                    particleCount = 60;
+                    particleSize = 3;
+                    lineDistance = 100;
+                    moveSpeed = 2;
+                } else if (isTablet) {
+                    particleCount = 80;
+                    particleSize = 3.5;
+                    lineDistance = 120;
+                    moveSpeed = 2.5;
+                }
+                
+                particlesJS("particles-js", {
+                    particles: {
+                        number: { 
+                            value: particleCount, 
+                            density: { 
+                                enable: true, 
+                                value_area: isMobile ? 400 : 800 
+                            } 
+                        },
+                        color: { 
+                            value: ["#06b6d4", "#a78bfa", "#6366f1", "#0ea5e9"] 
+                        },
+                        shape: { 
+                            type: "circle" 
+                        },
+                        opacity: { 
+                            value: 0.7, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable animations on mobile for better performance
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: { 
+                            value: particleSize, 
+                            random: true,
+                            anim: {
+                                enable: !isMobile, // Disable size animations on mobile
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: lineDistance,
+                            color: "#06b6d4",
+                            opacity: 0.6,
+                            width: isMobile ? 1 : 2
+                        },
+                        move: {
+                            enable: true,
+                            speed: moveSpeed,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: !isMobile, // Disable attraction on mobile for better performance
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { 
+                                enable: !isMobile, // Disable hover on mobile
+                                mode: "grab" 
+                            },
+                            onclick: { 
+                                enable: true, 
+                                mode: "push" 
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { 
+                                distance: isMobile ? 80 : 140, 
+                                line_linked: { 
+                                    opacity: 1 
+                                } 
+                            },
+                            push: { 
+                                particles_nb: isMobile ? 2 : 4 
+                            },
+                            repulse: {
+                                distance: isMobile ? 100 : 200,
+                                duration: 0.4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            
+            // Initialize particles
+            setTimeout(initParticles, 500);
+            
+            // Reinitialize particles on window resize for responsive behavior
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Destroy existing particles and reinitialize
+                    if (window.pJSDom && window.pJSDom.length > 0) {
+                        window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                        window.pJSDom = [];
+                    }
+                    initParticles();
+                }, 250);
+            });
+        });
+    </script>
+    
+    <!-- Components Filter and Search JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all filter elements
+            const componentSearch = document.getElementById('component-search');
+            const componentSearchBtn = document.getElementById('component-search-btn');
+            const priceFilter = document.getElementById('component-price-filter');
+            const typeFilter = document.getElementById('component-type-filter');
+            const clearFiltersBtn = document.getElementById('clear-component-filters');
+            const resultsCount = document.getElementById('component-results-count');
+            const activeFilters = document.getElementById('component-active-filters');
+            
+            // Get all component items
+            const allComponents = document.querySelectorAll('.component-item');
+            
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Tab switching
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetTab = btn.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    btn.classList.add('active');
+                    document.getElementById(targetTab + '-content').classList.add('active');
+                    
+                    // Reset filters when switching tabs
+                    resetFilters();
+                });
+            });
+            
+            // Search functionality
+            function performSearch() {
+                const searchTerm = componentSearch.value.toLowerCase().trim();
+                const selectedPrice = priceFilter.value;
+                const selectedType = typeFilter.value;
+                
+                let visibleCount = 0;
+                let activeFiltersText = [];
+                
+                allComponents.forEach(component => {
+                    let shouldShow = true;
+                    
+                    // Search filter
+                    if (searchTerm) {
+                        const componentName = component.querySelector('h3').textContent.toLowerCase();
+                        const componentSpecs = component.querySelector('.component-specs').textContent.toLowerCase();
+                        if (!componentName.includes(searchTerm) && !componentSpecs.includes(searchTerm)) {
+                            shouldShow = false;
+                        }
+                    }
+                    
+                    // Price filter
+                    if (selectedPrice && shouldShow) {
+                        const price = parseFloat(component.querySelector('.component-price').textContent.replace(/[$,]/g, ''));
+                        const [minPrice, maxPrice] = selectedPrice.split('-').map(p => p === '+' ? Infinity : parseFloat(p));
+                        
+                        if (selectedPrice === '500+') {
+                            if (price < 500) shouldShow = false;
+                        } else {
+                            if (price < minPrice || price > maxPrice) shouldShow = false;
+                        }
+                    }
+                    
+                    // Type filter
+                    if (selectedType && shouldShow) {
+                        const componentType = component.getAttribute('data-type');
+                        if (componentType !== selectedType) {
+                            shouldShow = false;
+                        }
+                    }
+                    
+                    // Show/hide component
+                    if (shouldShow) {
+                        component.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        component.style.display = 'none';
+                    }
+                });
+                
+                // Update results count and active filters
+                resultsCount.textContent = `Showing ${visibleCount} of ${allComponents.length} components`;
+                
+                if (searchTerm || selectedPrice || selectedType) {
+                    if (searchTerm) activeFiltersText.push(`Search: "${searchTerm}"`);
+                    if (selectedPrice) activeFiltersText.push(`Price: ${priceFilter.options[priceFilter.selectedIndex].text}`);
+                    if (selectedType) activeFiltersText.push(`Type: ${typeFilter.options[typeFilter.selectedIndex].text}`);
+                    activeFilters.textContent = `Active filters: ${activeFiltersText.join(', ')}`;
+                } else {
+                    activeFilters.textContent = '';
+                }
+            }
+            
+            // Event listeners for filters
+            componentSearch.addEventListener('input', performSearch);
+            componentSearchBtn.addEventListener('click', performSearch);
+            priceFilter.addEventListener('change', performSearch);
+            typeFilter.addEventListener('change', performSearch);
+            
+            // Clear filters
+            function resetFilters() {
+                componentSearch.value = '';
+                priceFilter.value = '';
+                typeFilter.value = '';
+                
+                allComponents.forEach(component => {
+                    component.style.display = 'block';
+                });
+                
+                resultsCount.textContent = `Showing all components`;
+                activeFilters.textContent = '';
+            }
+            
+            clearFiltersBtn.addEventListener('click', resetFilters);
+            
+            // Add data-type attributes to components that don't have them
+            document.querySelectorAll('#ram-content .component-item').forEach(item => {
+                item.setAttribute('data-type', 'ram');
+            });
+            
+            document.querySelectorAll('#storage-content .component-item').forEach(item => {
+                item.setAttribute('data-type', 'storage');
+            });
+            
+            // Initialize
+            performSearch();
+        });
+    </script>
+    
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mobile-nav-fixed.js"></script>
+</body>
+</html> 
